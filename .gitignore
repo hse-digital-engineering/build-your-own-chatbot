@@ -1,0 +1,26 @@
+# python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# pycharm / intellij
+/.idea/
+
+# virtual environment, managed by rye / poetry / ...
+/.venv
+
+# autogen cache
+/.cache/
+
+# monkeytype db
+/monkeytype.sqlite3
+
+
+# env, secrets
+/.env
+
+# project-specific:
+.DS_Store
