@@ -2,7 +2,7 @@ import pathlib
 
 import pytest
 
-from example_project_with_rye.util.settings import load_env_settings
+from chatbot.util.settings import load_env_settings
 
 BASE_PATH = pathlib.Path(__file__).parent.parent.resolve()
 def test_load_settings_with_default_env_file():

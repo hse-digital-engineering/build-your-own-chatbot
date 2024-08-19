@@ -1,3 +1,5 @@
+# Workshop Build your own Chatbot
+
 # example-project-with-rye
 
 An example python AI project, testing out some best practices for python development

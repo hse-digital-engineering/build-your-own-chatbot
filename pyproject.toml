@@ -1,9 +1,9 @@
 [project]
-name = "example-project-with-rye"
+name = "chatbot"
 version = "0.1.0"
-description = "Add your description here"
+description = "Project for workshop build your own chatbot."
 authors = [
-    { name = "Max", email = "Max@example-project-with-rye.com" }
+    { name = "Martin Kovacs", email = "martin-kovacs@web.de" }
 ]
 dependencies = [
     "langchain>=0.2.6",

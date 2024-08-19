@@ -8,8 +8,8 @@ from langchain_core.messages import AIMessage, ChatMessage
 from openai.types.chat import ChatCompletion, ChatCompletionMessageParam
 from pydantic.v1 import SecretStr as pydantic_v1_SecretStr
 
-from example_project_with_rye.util.pretty_print import pretty_print_yaml
-from example_project_with_rye.util.settings import load_env_settings, Settings
+from chatbot.util.pretty_print import pretty_print_yaml
+from chatbot.util.settings import load_env_settings, Settings
 
 
 def get_openai_settings_dict(settings: Settings):
