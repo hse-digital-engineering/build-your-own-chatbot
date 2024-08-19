@@ -90,6 +90,64 @@ This diagram illustrates the flow of data during a typical user interaction with
 
 This repository serves as the project template for the workshop.
 
+### Project Structure
+
+Here’s a breakdown of the project structure with an explanation of each component:
+
+```plaintext
+├── .devcontainer
+│   └── devcontainer.json               # Configuration for the development container setup
+├── .editorconfig                        # EditorConfig file for maintaining consistent coding styles across editors
+├── .env.example                         # Example environment configuration file
+├── .github
+│   └── workflows
+│       └── checks.yml                   # GitHub Actions workflow for automated checks (linting, testing, etc.)
+├── .gitignore                           # Git ignore file to specify files and directories to be ignored by Git
+├── .pre-commit-config.yaml              # Configuration for pre-commit hooks
+├── pyproject.toml                       # Project metadata and configuration file for Python packaging and tools
+├── .python-version                      # Specifies the Python version used in the project
+├── README.md                            # Project README file
+├── requirements-dev.lock                # Locked file for development dependencies
+├── requirements.lock                    # Locked file for project dependencies
+├── src
+│   ├── chatbot
+│   │   ├── backend                      # Backend code (e.g., APIs, database interaction, business logic)
+│   │   └── frontend                     # Frontend code (e.g., UI components, Gradio interface)
+│   └── prototyping                      # Prototyping code and scripts for initial experiments
+└── tests
+    └── test_aaa.py                      # Unit tests for the project (following Pytest conventions)
+```
+
+**Explanation of the Project Structure**
+
+- **`.devcontainer/`**: Contains the `devcontainer.json` configuration, which sets up a consistent development environment using Visual Studio Code’s Dev Containers feature. This ensures that all developers work within the same environment, reducing "it works on my machine" issues.
+
+- **`.editorconfig`**: A file that helps maintain consistent coding styles between different editors and IDEs. It defines rules like indentation styles, line endings, and more.
+
+- **`.env.example`**: An example of the environment variables required for the project. Developers should copy this file to `.env` and fill in their specific values.
+
+- **`.github/`**: Contains GitHub Actions workflows. The `checks.yml` file defines automated actions like linting, testing, and other checks that run on pull requests to maintain code quality.
+
+- **`.gitignore`**: Specifies which files and directories should be ignored by Git, preventing sensitive or unnecessary files from being committed to the repository.
+
+- **`.pre-commit-config.yaml`**: Configuration file for Pre-Commit hooks, which run automated checks (like linting and formatting) before code is committed to the repository.
+
+- **`pyproject.toml`**: A configuration file that contains project metadata, dependency management, and configurations for various tools like Rye, Pyright, and Ruff. This is the core configuration file for the project.
+
+- **`.python-version`**: Specifies the version of Python to be used for the project, ensuring consistency across different environments.
+
+- **`README.md`**: The primary documentation file for the project, containing an overview, setup instructions, usage guidelines, and more.
+
+- **`requirements-dev.lock` & `requirements.lock`**: Locked versions of the project’s dependencies, ensuring that everyone uses the exact same versions of libraries and tools, avoiding compatibility issues.
+
+- **`src/`**: The source directory containing all the main code for the project.
+  - **`chatbot/`**: Contains the core chatbot code.
+    - **`backend/`**: Handles all backend-related tasks like API logic, data handling, and business logic.
+    - **`frontend/`**: Contains the frontend code, particularly the Gradio interface used for interacting with the chatbot.
+  - **`prototyping/`**: Used for initial experiments and prototypes, allowing developers to try out ideas before integrating them into the main codebase.
+
+- **`tests/`**: Contains unit tests for the project, ensuring that all components work as expected. The tests follow the Pytest conventions, with files prefixed by `test_`.
+
 ### Tools and Technologies
 
 The project utilizes the following tools and technologies:
