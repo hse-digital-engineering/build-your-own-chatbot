@@ -1,0 +1,18 @@
+# docker/Dockerfile.frontend
+FROM python:3.11-slim
+
+# Install Rye
+RUN pip install rye
+
+# Set up the working directory
+WORKDIR /app
+
+# Copy the Rye lock file and install dependencies
+COPY requirements.lock requirements.lock
+RUN rye install
+
+# Copy the frontend code
+COPY src/chatbot/frontend /app/frontend
+
+# Set the command to run the Gradio interface
+CMD ["rye", "run", "frontend.main"]
