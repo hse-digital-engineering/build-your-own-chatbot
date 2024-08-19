@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: chatbot/frontend/Dockerfile.frontend
+    ports:
+      - "8080:80"  # Map frontend port 80 to host port 8080
+    depends_on:
+      - backend
+    networks:
+      - net
+
+  backend:
+    build:
+      context: .
+      dockerfile: chatbot/backend/Dockerfile.backend
+    ports:
+      - "5001:5000"  # Map backend port 5000 to host port 5001
+    environment:
+      - ENV_FILE=.env
+    depends_on:
+      - llm
+      - chroma
+    networks:
+      - net
+
+  llm:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "7869:11434"  # Map LLM port 11434 to host port 7869
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - net
+
+  chroma:
+    image: ghcr.io/chroma-core/chroma:latest
+    ports:
+      - "8000:8000"  # Map Chroma port 8000 to host port 8000
+    volumes:
+      - chroma_data:/chroma/.chroma/index
+    networks:
+      - net
+
+volumes:
+  ollama_data:
+    driver: local
+  chroma_data:
+    driver: local
+
+networks:
+  net:
+    driver: bridge
