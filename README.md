@@ -26,7 +26,6 @@ Below is a diagram code that explains the general concept of Retrieval-Augmented
 
 ### Target Architecture
 
-The chatbot solution is designed with the following architecture:
 
 ```mermaid
 graph TD
@@ -41,12 +40,9 @@ graph TD
         Frontend -->|REST API| Backend
         Backend -->|HTTP| LLM
         Backend -->|HTTP| VectorStore
-        DevContainer(Dev Container) -->|Development| Frontend
-        DevContainer -->|Development| Backend
     end
 
     WebBrowser(Web Browser) -->|Access| Frontend
-    DevRemote(Developer Remote Machine) -->|Remote Development| DevContainer
 ```
 
 ### Components Explained
@@ -62,7 +58,7 @@ graph TD
 3. **Development and Communication Flow**:
     - **Frontend to Backend**: Communication via REST API.
     - **Backend to LLM and VectorStore**: Interaction through HTTP requests.
-    - **Development Environment**: Dev Container allows development within an isolated environment on the NVIDIA Jetson Orin Nano.
+    - **Remote Development**: Developers interact with the NVIDIA Jetson Orin Nano remotely for development purposes.
 
 ### User Interaction Flow
 
