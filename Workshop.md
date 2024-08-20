@@ -1,5 +1,3 @@
-## Improved Workshop Timeline
-
 ### **Workshop Agenda: Build Your Own Chatbot**
 **Date**: 20.09.2024  
 **Time**: 8:00 AM - 4:00 PM
@@ -23,7 +21,7 @@
 * Basics of prompt engineering: Crafting simple and effective prompts
 
 **8:50 AM - 9:40 AM**  
-**Practical (50 min)**
+**Practical (45 min)**
 * Deploy LLM on Orin using a Docker Container
 * Writing and executing simple prompts using `curl` and Python (in terminal and Jupyter Notebook)
 * Experimenting with prompt variations and observing LLM responses
@@ -43,7 +41,7 @@
 * Understanding how to connect multiple components using Chains
 
 **10:10 AM - 11:00 AM**  
-**Practical (50 min)**
+**Practical (45 min)**
 * Creating a simple Chain in LangChain (using Jupyter Notebook)
 * Connecting multiple prompts, processing responses, and building a basic chatbot flow
 
@@ -62,7 +60,7 @@
 * Overview of Vector Databases and Embeddings: What they are and why they matter
 
 **11:30 AM - 12:20 PM**  
-**Practical (50 min)**
+**Practical (60 min)**
 * Setting up a Vector Database (e.g., ChromaDB) in Jupyter Notebook
 * Loading custom data into the database and creating embeddings
 * Performing similarity searches using vector queries to retrieve contextually relevant information
@@ -82,7 +80,7 @@
 * Building a RAG-Chain: Integrating the Vector Database with LLM for context-aware responses
 
 **1:20 PM - 2:10 PM**  
-**Practical (50 min)**
+**Practical (45 min)**
 * Implementing a RAG-Chain in LangChain (using Jupyter Notebook)
 * Enhancing chatbot responses with context injection from the Vector Database
 
