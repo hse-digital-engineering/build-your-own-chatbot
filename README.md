@@ -24,6 +24,69 @@ Below is a diagram code that explains the general concept of Retrieval-Augmented
 
 ![Alt text](https://dist.neo4j.com/wp-content/uploads/20240227120536/rag-process.png)
 
+### Developer Environment:
+
+```mermaid
+flowchart TB
+    subgraph EdgeDevice [NVIDIA Jetson Orin Nano]
+        direction TB
+        
+        Layer1[Hardware Layer]
+        Layer2[Operating System Layer]
+        Layer3[Application Layer]
+        Layer4[Development Tools Layer]
+
+        Layer1 -->|Supports| Layer2
+        Layer2 -->|Hosts| Layer3
+        Layer2 -->|Hosts| Layer4
+        
+        subgraph Layer1 [Hardware Layer]
+            CPU[ARM CPU]
+            GPU[NVIDIA Ampere GPU]
+        end
+
+        subgraph Layer2 [Operating System Layer]
+            Ubuntu[Ubuntu OS]
+        end
+
+        subgraph Layer3 [Application Layer]
+            Docker[Docker]
+            Containers[Containerized Applications]
+            Docker --> Containers
+        end
+
+        subgraph Layer4 [Development Tools Layer]
+            VSCode[VSCode IDE]
+        end
+        
+    end
+    
+    Developer[Developer]
+    Developer --> |Develops Directly| VSCode
+    Developer --> |Manages Containers| Docker
+```
+
+Here’s a textual explanation of the component architecture for the NVIDIA Jetson Orin Nano, organized in layers:
+
+### 1. **Hardware Layer**
+   - **ARM CPU**: The central processing unit responsible for general computing tasks.
+   - **NVIDIA Ampere GPU**: The graphics processing unit optimized for parallel processing, crucial for AI and machine learning tasks.
+
+### 2. **Operating System Layer**
+   - **Ubuntu OS**: The operating system running on the NVIDIA Jetson Orin Nano, providing the base environment for all software components.
+
+### 3. **Application Layer**
+   - **Docker**: A platform for containerization that allows applications to run in isolated environments, ensuring consistency and flexibility.
+   - **Containerized Applications**: The actual AI models and other applications that are developed, deployed, and executed within Docker containers on the Orin Nano.
+
+### 4. **Development Tools Layer**
+   - **VSCode IDE**: Visual Studio Code, the integrated development environment used by developers to write, debug, and manage code directly on the Orin Nano.
+
+### **Developer Interaction**
+   - The developer interacts directly with the VSCode IDE on the Orin Nano for coding and debugging.
+   - The developer also manages Docker containers to deploy and run AI models and applications within the edge device.
+
+
 ### Target Architecture
 
 
