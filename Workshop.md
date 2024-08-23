@@ -23,7 +23,7 @@
 **8:50 AM - 9:40 AM**  
 **Practical (45 min)**
 * Deploy LLM on Orin using a Docker Container
-* Writing and executing simple prompts using `curl` and Python (in terminal and Jupyter Notebook)
+* Writing and executing simple prompts using Python (in terminal and Jupyter Notebook)
 * Experimenting with prompt variations and observing LLM responses
 
 ---
