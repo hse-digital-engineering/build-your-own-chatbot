@@ -4,27 +4,33 @@
 
 ---
 
-**8:00 AM - 8:30 AM**  
-**Welcome and Introduction (30 min)**
+**8:00 AM - 8:20 AM**  
+**Welcome and Introduction (20 min)**
+* Welcome
 * Overview of the day’s agenda
-* Introduction to the workshop goals
-* Brief overview of NVIDIA Jetson Orin Nano
-* Setting up the development environment with NVIDIA Jetson Orin Nano
+* Workshop goal
+* Brief overview of NVIDIA Jetson Orin Nano, Development Env and Goal Architecture
+* Startup development environment with NVIDIA Jetson Orin Nano
 
 ---
 
-### **Session 1: Introduction to LLMs and Simple Prompting**
+### **Session 1: Introduction to LLMs**
 
 **8:30 AM - 8:50 AM**  
 **Theory (20 min)**
-* Introduction to Large Language Models (LLMs): ChatLLMs, One Shot, Few Shot, Fine Tuning
-* Basics of prompt engineering: Crafting simple and effective prompts
+* GenAI and Foundation Models
+* Large Language Models (LLMs): General concept
+* Usage of LLMs: One Shot, Few Shot, Fine Tuning for task solving
+* ChatModels: Fine Tuned LLMs with conversations
+* Basics of prompt engineering (Prompt Structure)
+* Deployment of LLMs (Docker, Ollama) on Nvidi Jetson Orin Nano
+* Interaction with deployed LLM
 
 **8:50 AM - 9:40 AM**  
 **Practical (45 min)**
-* Deploy LLM on Orin using a Docker Container
-* Writing and executing simple prompts using Python (in terminal and Jupyter Notebook)
-* Experimenting with prompt variations and observing LLM responses
+* Deploy LLM on Orin with Ollama and Docker
+* Writing and executing simple prompts using HTTP Client and Python
+* Experimenting with prompt techniques and observing LLM responses
 
 ---
 
