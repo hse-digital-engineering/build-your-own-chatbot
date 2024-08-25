@@ -9,179 +9,179 @@
 #   generate-hashes: false
 #   universal: true
 
-aiofiles==23.2.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+aiofiles==23.2.1
     # via gradio
-aiohappyeyeballs==2.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+aiohappyeyeballs==2.4.0
     # via aiohttp
-aiohttp==3.10.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+aiohttp==3.10.5
     # via langchain
-aiosignal==1.3.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+aiosignal==1.3.1
     # via aiohttp
-annotated-types==0.7.0 ; (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')) and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or ((python_full_version < '3.12.4' or python_full_version >= '3.12.4') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))))
+annotated-types==0.7.0
     # via pydantic
-anyio==4.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+anyio==4.4.0
     # via gradio
     # via httpx
     # via jupyter-server
     # via openai
     # via starlette
-appnope==0.1.4 ; platform_system == 'Darwin' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+appnope==0.1.4 ; platform_system == 'Darwin'
     # via ipykernel
-argon2-cffi==23.1.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+argon2-cffi==23.1.0
     # via jupyter-server
-argon2-cffi-bindings==21.2.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+argon2-cffi-bindings==21.2.0
     # via argon2-cffi
-arrow==1.3.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+arrow==1.3.0
     # via isoduration
-asttokens==2.4.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+asttokens==2.4.1
     # via stack-data
-async-lru==2.0.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+async-lru==2.0.4
     # via jupyterlab
-attrs==24.2.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+attrs==24.2.0
     # via aiohttp
     # via jsonschema
     # via referencing
-babel==2.16.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+babel==2.16.0
     # via jupyterlab-server
-beautifulsoup4==4.12.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+beautifulsoup4==4.12.3
     # via nbconvert
-bleach==6.1.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+bleach==6.1.0
     # via nbconvert
-certifi==2024.7.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+certifi==2024.7.4
     # via httpcore
     # via httpx
     # via requests
-cffi==1.17.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (implementation_name == 'pypy' and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+cffi==1.17.0
     # via argon2-cffi-bindings
     # via pyzmq
-cfgv==3.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+cfgv==3.4.0
     # via pre-commit
-charset-normalizer==3.3.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+charset-normalizer==3.3.2
     # via requests
-click==8.1.7 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+click==8.1.7 ; sys_platform != 'emscripten'
     # via typer
     # via uvicorn
-colorama==0.4.6 ; (platform_system == 'Windows' and sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))) or (platform_system == 'Windows' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))) or (sys_platform == 'win32' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+colorama==0.4.6 ; sys_platform == 'win32' or platform_system == 'Windows'
     # via click
     # via ipython
     # via pytest
     # via tqdm
-comm==0.2.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+comm==0.2.2
     # via ipykernel
     # via ipywidgets
-contourpy==1.2.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+contourpy==1.2.1
     # via matplotlib
-cycler==0.12.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+cycler==0.12.1
     # via matplotlib
-debugpy==1.8.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+debugpy==1.8.5
     # via ipykernel
-decorator==5.1.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+decorator==5.1.1
     # via ipython
-defusedxml==0.7.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+defusedxml==0.7.1
     # via nbconvert
-distlib==0.3.8 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+distlib==0.3.8
     # via virtualenv
-distro==1.9.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+distro==1.9.0
     # via openai
-executing==2.0.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+executing==2.0.1
     # via stack-data
-fastapi==0.112.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+fastapi==0.112.1
     # via gradio
-fastjsonschema==2.20.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+fastjsonschema==2.20.0
     # via nbformat
-ffmpy==0.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+ffmpy==0.4.0
     # via gradio
-filelock==3.15.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+filelock==3.15.4
     # via huggingface-hub
     # via virtualenv
-fonttools==4.53.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+fonttools==4.53.1
     # via matplotlib
-fqdn==1.5.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+fqdn==1.5.1
     # via jsonschema
-frozenlist==1.4.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+frozenlist==1.4.1
     # via aiohttp
     # via aiosignal
-fsspec==2024.6.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+fsspec==2024.6.1
     # via gradio-client
     # via huggingface-hub
-gradio==4.41.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-gradio-client==1.3.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+gradio==4.41.0
+gradio-client==1.3.0
     # via gradio
-greenlet==3.0.3 ; python_version < '3.13' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version >= '3.12')) and (platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64')
+greenlet==3.0.3 ; (python_full_version < '3.13' and platform_machine == 'AMD64') or (python_full_version < '3.13' and platform_machine == 'WIN32') or (python_full_version < '3.13' and platform_machine == 'aarch64') or (python_full_version < '3.13' and platform_machine == 'amd64') or (python_full_version < '3.13' and platform_machine == 'ppc64le') or (python_full_version < '3.13' and platform_machine == 'win32') or (python_full_version < '3.13' and platform_machine == 'x86_64')
     # via sqlalchemy
-h11==0.14.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (sys_platform != 'emscripten' and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+h11==0.14.0
     # via httpcore
     # via uvicorn
-httpcore==1.0.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+httpcore==1.0.5
     # via httpx
-httpx==0.27.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+httpx==0.27.0
     # via gradio
     # via gradio-client
     # via jupyterlab
     # via langsmith
     # via ollama
     # via openai
-huggingface-hub==0.24.6 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+huggingface-hub==0.24.6
     # via gradio
     # via gradio-client
-identify==2.6.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+identify==2.6.0
     # via pre-commit
-idna==3.7 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+idna==3.7
     # via anyio
     # via httpx
     # via jsonschema
     # via requests
     # via yarl
-importlib-resources==6.4.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+importlib-resources==6.4.3
     # via gradio
-iniconfig==2.0.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+iniconfig==2.0.0
     # via pytest
-ipykernel==6.29.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+ipykernel==6.29.5
     # via jupyter
     # via jupyter-console
     # via jupyterlab
     # via qtconsole
-ipython==8.26.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+ipython==8.26.0
     # via ipykernel
     # via ipywidgets
     # via jupyter-console
-ipywidgets==8.1.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+ipywidgets==8.1.3
     # via jupyter
-isoduration==20.11.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+isoduration==20.11.0
     # via jsonschema
-jedi==0.19.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jedi==0.19.1
     # via ipython
-jinja2==3.1.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jinja2==3.1.4
     # via gradio
     # via jupyter-server
     # via jupyterlab
     # via jupyterlab-server
     # via nbconvert
-jiter==0.5.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jiter==0.5.0
     # via openai
-json5==0.9.25 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+json5==0.9.25
     # via jupyterlab-server
-jsonpatch==1.33 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jsonpatch==1.33
     # via langchain-core
-jsonpointer==3.0.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jsonpointer==3.0.0
     # via jsonpatch
     # via jsonschema
-jsonschema==4.23.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jsonschema==4.23.0
     # via jupyter-events
     # via jupyterlab-server
     # via nbformat
-jsonschema-specifications==2023.12.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jsonschema-specifications==2023.12.1
     # via jsonschema
-jupyter==1.0.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-jupyter-client==8.6.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter==1.0.0
+jupyter-client==8.6.2
     # via ipykernel
     # via jupyter-console
     # via jupyter-server
     # via nbclient
     # via qtconsole
-jupyter-console==6.6.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-console==6.6.3
     # via jupyter
-jupyter-core==5.7.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-core==5.7.2
     # via ipykernel
     # via jupyter-client
     # via jupyter-console
@@ -191,92 +191,92 @@ jupyter-core==5.7.2 ; python_version >= '3.13' or (python_full_version < '3.12.4
     # via nbconvert
     # via nbformat
     # via qtconsole
-jupyter-events==0.10.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-events==0.10.0
     # via jupyter-server
-jupyter-lsp==2.2.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-lsp==2.2.5
     # via jupyterlab
-jupyter-server==2.14.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-server==2.14.2
     # via jupyter-lsp
     # via jupyterlab
     # via jupyterlab-server
     # via notebook
     # via notebook-shim
-jupyter-server-terminals==0.5.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.2.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyterlab==4.2.4
     # via notebook
-jupyterlab-pygments==0.3.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyterlab-pygments==0.3.0
     # via nbconvert
-jupyterlab-server==2.27.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyterlab-server==2.27.3
     # via jupyterlab
     # via notebook
-jupyterlab-widgets==3.0.11 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+jupyterlab-widgets==3.0.11
     # via ipywidgets
-kiwisolver==1.4.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+kiwisolver==1.4.5
     # via matplotlib
-langchain==0.2.14 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-langchain-core==0.2.33 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+langchain==0.2.14
+langchain-core==0.2.33
     # via langchain
     # via langchain-openai
     # via langchain-text-splitters
-langchain-openai==0.1.22 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-langchain-text-splitters==0.2.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+langchain-openai==0.1.22
+langchain-text-splitters==0.2.2
     # via langchain
-langsmith==0.1.100 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+langsmith==0.1.100
     # via langchain
     # via langchain-core
-markdown-it-py==3.0.0 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+markdown-it-py==3.0.0 ; sys_platform != 'emscripten'
     # via rich
-markupsafe==2.1.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+markupsafe==2.1.5
     # via gradio
     # via jinja2
     # via nbconvert
-matplotlib==3.9.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+matplotlib==3.9.2
     # via gradio
-matplotlib-inline==0.1.7 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+matplotlib-inline==0.1.7
     # via ipykernel
     # via ipython
-mdurl==0.1.2 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+mdurl==0.1.2 ; sys_platform != 'emscripten'
     # via markdown-it-py
-mistune==3.0.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+mistune==3.0.2
     # via nbconvert
-multidict==6.0.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+multidict==6.0.5
     # via aiohttp
     # via yarl
-nbclient==0.10.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+nbclient==0.10.0
     # via nbconvert
-nbconvert==7.16.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+nbconvert==7.16.4
     # via jupyter
     # via jupyter-server
-nbformat==5.10.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+nbformat==5.10.4
     # via jupyter-server
     # via nbclient
     # via nbconvert
-nest-asyncio==1.6.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+nest-asyncio==1.6.0
     # via ipykernel
-nodeenv==1.9.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+nodeenv==1.9.1
     # via pre-commit
     # via pyright
-notebook==7.2.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+notebook==7.2.1
     # via jupyter
-notebook-shim==0.2.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+notebook-shim==0.2.4
     # via jupyterlab
     # via notebook
-numpy==1.26.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or ((python_version == '3.11' or python_version >= '3.12') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+numpy==1.26.4
     # via contourpy
     # via gradio
     # via langchain
     # via matplotlib
     # via pandas
-ollama==0.3.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-openai==1.42.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+ollama==0.3.1
+openai==1.42.0
     # via langchain-openai
-orjson==3.10.7 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+orjson==3.10.7
     # via gradio
     # via langsmith
-overrides==7.7.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+overrides==7.7.0
     # via jupyter-server
-packaging==24.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+packaging==24.1
     # via gradio
     # via gradio-client
     # via huggingface-hub
@@ -290,38 +290,38 @@ packaging==24.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' an
     # via pytest
     # via qtconsole
     # via qtpy
-pandas==2.2.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pandas==2.2.2
     # via gradio
-pandocfilters==1.5.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pandocfilters==1.5.1
     # via nbconvert
-parso==0.8.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+parso==0.8.4
     # via jedi
-pexpect==4.9.0 ; sys_platform != 'emscripten' and sys_platform != 'win32' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+pexpect==4.9.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
     # via ipython
-pillow==10.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pillow==10.4.0
     # via gradio
     # via matplotlib
-platformdirs==4.2.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+platformdirs==4.2.2
     # via jupyter-core
     # via virtualenv
-pluggy==1.5.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pluggy==1.5.0
     # via pytest
-pre-commit==3.8.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-prometheus-client==0.20.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pre-commit==3.8.0
+prometheus-client==0.20.0
     # via jupyter-server
-prompt-toolkit==3.0.47 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+prompt-toolkit==3.0.47
     # via ipython
     # via jupyter-console
-psutil==6.0.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+psutil==6.0.0
     # via ipykernel
-ptyprocess==0.7.0 ; (os_name != 'nt' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))) or (sys_platform != 'emscripten' and sys_platform != 'win32' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+ptyprocess==0.7.0 ; os_name != 'nt' or (sys_platform != 'emscripten' and sys_platform != 'win32')
     # via pexpect
     # via terminado
-pure-eval==0.2.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pure-eval==0.2.3
     # via stack-data
-pycparser==2.22 ; (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')) and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (implementation_name == 'pypy' and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))))
+pycparser==2.22
     # via cffi
-pydantic==2.8.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or ((python_full_version < '3.12.4' or python_full_version >= '3.12.4') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+pydantic==2.8.2
     # via fastapi
     # via gradio
     # via langchain
@@ -329,133 +329,133 @@ pydantic==2.8.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' an
     # via langsmith
     # via openai
     # via pydantic-settings
-pydantic-core==2.20.1 ; (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')) and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or ((python_full_version < '3.12.4' or python_full_version >= '3.12.4') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))))
+pydantic-core==2.20.1
     # via pydantic
-pydantic-settings==2.4.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-pydub==0.25.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pydantic-settings==2.4.0
+pydub==0.25.1
     # via gradio
-pygments==2.18.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (sys_platform != 'emscripten' and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))
+pygments==2.18.0
     # via ipython
     # via jupyter-console
     # via nbconvert
     # via qtconsole
     # via rich
-pyparsing==3.1.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pyparsing==3.1.2
     # via matplotlib
-pyright==1.1.377 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-pytest==8.3.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-python-dateutil==2.9.0.post0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pyright==1.1.377
+pytest==8.3.2
+python-dateutil==2.9.0.post0
     # via arrow
     # via jupyter-client
     # via matplotlib
     # via pandas
-python-dotenv==1.0.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+python-dotenv==1.0.1
     # via pydantic-settings
-python-json-logger==2.0.7 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+python-json-logger==2.0.7
     # via jupyter-events
-python-multipart==0.0.9 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+python-multipart==0.0.9
     # via gradio
-pytz==2024.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pytz==2024.1
     # via pandas
-pywin32==306 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+pywin32==306 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32'
     # via jupyter-core
-pywinpty==2.0.13 ; os_name == 'nt' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+pywinpty==2.0.13 ; os_name == 'nt'
     # via jupyter-server
     # via jupyter-server-terminals
     # via terminado
-pyyaml==6.0.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pyyaml==6.0.2
     # via gradio
     # via huggingface-hub
     # via jupyter-events
     # via langchain
     # via langchain-core
     # via pre-commit
-pyzmq==26.1.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+pyzmq==26.1.1
     # via ipykernel
     # via jupyter-client
     # via jupyter-console
     # via jupyter-server
     # via qtconsole
-qtconsole==5.5.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+qtconsole==5.5.2
     # via jupyter
-qtpy==2.4.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+qtpy==2.4.1
     # via qtconsole
-referencing==0.35.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+referencing==0.35.1
     # via jsonschema
     # via jsonschema-specifications
     # via jupyter-events
-regex==2024.7.24 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+regex==2024.7.24
     # via tiktoken
-requests==2.32.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+requests==2.32.3
     # via huggingface-hub
     # via jupyterlab-server
     # via langchain
     # via langsmith
     # via tiktoken
-rfc3339-validator==0.1.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+rfc3339-validator==0.1.4
     # via jsonschema
     # via jupyter-events
-rfc3986-validator==0.1.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+rfc3986-validator==0.1.1
     # via jsonschema
     # via jupyter-events
-rich==13.7.1 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+rich==13.7.1 ; sys_platform != 'emscripten'
     # via typer
-rpds-py==0.20.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+rpds-py==0.20.0
     # via jsonschema
     # via referencing
-ruamel-yaml==0.18.6 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
-ruamel-yaml-clib==0.2.8 ; python_version < '3.13' and platform_python_implementation == 'CPython' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version >= '3.12'))
+ruamel-yaml==0.18.6
+ruamel-yaml-clib==0.2.8 ; python_full_version < '3.13' and platform_python_implementation == 'CPython'
     # via ruamel-yaml
-ruff==0.6.1 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+ruff==0.6.1 ; sys_platform != 'emscripten'
     # via gradio
-semantic-version==2.10.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+semantic-version==2.10.0
     # via gradio
-send2trash==1.8.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+send2trash==1.8.3
     # via jupyter-server
-setuptools==73.0.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+setuptools==73.0.1
     # via jupyterlab
-shellingham==1.5.4 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+shellingham==1.5.4 ; sys_platform != 'emscripten'
     # via typer
-six==1.16.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+six==1.16.0
     # via asttokens
     # via bleach
     # via python-dateutil
     # via rfc3339-validator
-sniffio==1.3.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+sniffio==1.3.1
     # via anyio
     # via httpx
     # via openai
-soupsieve==2.6 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+soupsieve==2.6
     # via beautifulsoup4
-sqlalchemy==2.0.32 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+sqlalchemy==2.0.32
     # via langchain
-stack-data==0.6.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+stack-data==0.6.3
     # via ipython
-starlette==0.38.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+starlette==0.38.2
     # via fastapi
-tenacity==8.5.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tenacity==8.5.0
     # via langchain
     # via langchain-core
-terminado==0.18.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
-tiktoken==0.7.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tiktoken==0.7.0
     # via langchain-openai
-tinycss2==1.3.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tinycss2==1.3.0
     # via nbconvert
-tomlkit==0.12.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tomlkit==0.12.0
     # via gradio
-tornado==6.4.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tornado==6.4.1
     # via ipykernel
     # via jupyter-client
     # via jupyter-server
     # via jupyterlab
     # via notebook
     # via terminado
-tqdm==4.66.5 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tqdm==4.66.5
     # via huggingface-hub
     # via openai
-traitlets==5.14.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+traitlets==5.14.3
     # via comm
     # via ipykernel
     # via ipython
@@ -471,11 +471,11 @@ traitlets==5.14.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' 
     # via nbconvert
     # via nbformat
     # via qtconsole
-typer==0.12.4 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+typer==0.12.4 ; sys_platform != 'emscripten'
     # via gradio
-types-python-dateutil==2.9.0.20240821 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+types-python-dateutil==2.9.0.20240821
     # via arrow
-typing-extensions==4.12.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_version < '3.12' and (python_full_version < '3.12.4' or python_full_version >= '3.12.4')) or (sys_platform != 'emscripten' and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))) or ((python_full_version < '3.12.4' or python_full_version >= '3.12.4') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))) or (((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')) and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12') or ((python_full_version < '3.12.4' or python_full_version >= '3.12.4') and ((python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')))))
+typing-extensions==4.12.2
     # via fastapi
     # via gradio
     # via gradio-client
@@ -487,29 +487,29 @@ typing-extensions==4.12.2 ; python_version >= '3.13' or (python_full_version < '
     # via pydantic-core
     # via sqlalchemy
     # via typer
-tzdata==2024.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+tzdata==2024.1
     # via pandas
-uri-template==1.3.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+uri-template==1.3.0
     # via jsonschema
-urllib3==2.2.2 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+urllib3==2.2.2
     # via gradio
     # via requests
-uvicorn==0.30.6 ; sys_platform != 'emscripten' and (python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12'))
+uvicorn==0.30.6 ; sys_platform != 'emscripten'
     # via gradio
-virtualenv==20.26.3 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+virtualenv==20.26.3
     # via pre-commit
-wcwidth==0.2.13 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+wcwidth==0.2.13
     # via prompt-toolkit
-webcolors==24.8.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+webcolors==24.8.0
     # via jsonschema
-webencodings==0.5.1 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+webencodings==0.5.1
     # via bleach
     # via tinycss2
-websocket-client==1.8.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+websocket-client==1.8.0
     # via jupyter-server
-websockets==12.0 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+websockets==12.0
     # via gradio-client
-widgetsnbextension==4.0.11 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+widgetsnbextension==4.0.11
     # via ipywidgets
-yarl==1.9.4 ; python_version >= '3.13' or (python_full_version < '3.12.4' and python_version < '3.12') or (python_full_version < '3.12.4' and python_version < '3.13' and python_version >= '3.12') or (python_full_version >= '3.12.4' and python_version < '3.12') or (python_full_version >= '3.12.4' and python_version < '3.13' and python_version >= '3.12')
+yarl==1.9.4
     # via aiohttp
