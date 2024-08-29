@@ -17,7 +17,7 @@
 ### **Session 1: Introduction to LLMs**
 
 **8:30 AM - 8:50 AM**  
-**Theory (20 min)**
+**Theory (30 min)**
 * GenAI and Foundation Models
 * Large Language Models (LLMs): General concept
 * Usage of LLMs: One Shot, Few Shot, Fine Tuning for task solving
@@ -42,7 +42,7 @@
 ### **Session 2: Introduction to LangChain**
 
 **9:50 AM - 10:10 AM**  
-**Theory (20 min)**
+**Theory (30 min)**
 * LangChain Ecosystem
 * Introduction to LangChain
 * Key Components of LangChain
@@ -62,12 +62,12 @@
 ### **Session 3: Retrieval-Augmented Generation (RAG)**
 
 **11:10 AM - 11:30 AM**  
-**Theory (20 min)**
+**Theory (30 min)**
 * Introduction to Retrieval-Augmented Generation (RAG)
 * Overview of Vector Databases and Embeddings: What they are and why they matter
 
 **11:30 AM - 12:20 PM**  
-**Practical (60 min)**
+**Practical (45 min)**
 * Setting up a Vector Database (e.g., ChromaDB) in Jupyter Notebook
 * Loading custom data into the database and creating embeddings
 * Performing similarity searches using vector queries to retrieve contextually relevant information
@@ -75,19 +75,19 @@
 ---
 
 **12:20 PM - 1:00 PM**  
-**Lunch Break (40 min)**
+**Lunch Break (60 min)**
 
 ---
 
 ### **Session 4: Building a RAG-Chain in LangChain**
 
 **1:00 PM - 1:20 PM**  
-**Theory (20 min)**
+**Theory (?? min)**
 * Combining retrieval mechanisms with generation tasks in LangChain
 * Building a RAG-Chain: Integrating the Vector Database with LLM for context-aware responses
 
 **1:20 PM - 2:10 PM**  
-**Practical (45 min)**
+**Practical (?? min)**
 * Implementing a RAG-Chain in LangChain (using Jupyter Notebook)
 * Enhancing chatbot responses with context injection from the Vector Database
 
@@ -101,12 +101,12 @@
 ### **Session 5: Building the Chat Application**
 
 **2:20 PM - 2:40 PM**  
-**Theory (20 min)**
+**Theory (?? min)**
 * Overview of the target architecture
 * Introduction to the building blocks of the chatbot application
 
 **2:40 PM - 4:00 PM**  
-**Practical (80 min)**
+**Practical (?? min)**
 * Implementing the architecture: Setting up the frontend using Gradio and the backend with FastAPI
 * Integrating the chatbot into the application
 * Testing the chatbot and debugging issues
