@@ -43,8 +43,9 @@
 
 **9:50 AM - 10:10 AM**  
 **Theory (20 min)**
-* Overview of LangChain: Chains, models, agents, and their applications
-* Understanding how to connect multiple components using Chains
+* LangChain Ecosystem
+* Introduction to LangChain
+* Key Components of LangChain
 
 **10:10 AM - 11:00 AM**  
 **Practical (45 min)**
