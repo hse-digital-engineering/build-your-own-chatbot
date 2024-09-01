@@ -64,7 +64,9 @@
 **11:10 AM - 11:30 AM**  
 **Theory (30 min)**
 * Introduction to Retrieval-Augmented Generation (RAG)
-* Overview of Vector Databases and Embeddings: What they are and why they matter
+* Vector Embeddings
+* Vector Databases
+* Retrieval (Vectore Search)
 
 **11:30 AM - 12:20 PM**  
 **Practical (45 min)**
