@@ -11,7 +11,8 @@ In this task, you will pull the Docker image for ChromaDB. You will then create 
 Running Chroma server locally can be achieved via a simple docker command as shown below.
 
 ```
-docker run -d --rm --name chromadb -v ./chroma:/chroma/chroma -e IS_PERSISTENT=TRUE -e ANONYMIZED_TELEMETRY=TRUE chromadb/chroma:latest
+docker pull chromadb/chroma
+docker run -d -p 8000:8000 chromadb/chroma
 ```
 
 - -v specifies a local dir which is where Chroma will store its data so when the container is destroyed the data remains. Note: If you are using -e PERSIST_DIRECTORY then you need to point the volume to that directory.
