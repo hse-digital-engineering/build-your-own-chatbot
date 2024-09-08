@@ -1,18 +1,20 @@
-# docker/Dockerfile.backend
-FROM python:3.11-slim
+FROM python:3.10-slim
 
-# Install Rye
-RUN pip install rye
-
-# Set up the working directory
 WORKDIR /app
 
-# Copy the Rye lock file and install dependencies
-COPY requirements.lock requirements.lock
-RUN rye install
+# Install rye for dependency management
+RUN pip install rye
 
-# Copy the backend code
-COPY src/chatbot/backend /app/backend
+COPY pyproject.toml /app/
 
-# Set the command to run the backend application
-CMD ["rye", "run", "backend.main"]
+# Install dependencies via rye
+RUN rye sync
+
+# Install SQLite support for Python
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
+
+COPY . /app
+
+EXPOSE 8000
+
+CMD ["rye", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
