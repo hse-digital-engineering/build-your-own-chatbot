@@ -1,20 +1,12 @@
 [project]
-name = "chatbot"
+name = "frontend"
 version = "1.0.0"
-description = "Workshop build your own chatbot"
+description = "Gradio frontend for Chatbot interface"
 authors = [
     { name = "Max", email = "Max@example-project-with-rye.com" }
 ]
 dependencies = [
-    "langchain>=0.2.6",
-    "langchain-openai>=0.1.14",
-    "pydantic>=2.8.2",
-    "pydantic-settings>=2.3.4",
-    "python-dotenv>=1.0.1",
-    "openai>=1.35.10",
-    "ruamel-yaml>=0.18.6",
-    "jupyter>=1.0.0",
-    "gradio>=4.41.0"
+"gradio>=4.43.0"
 ]
 readme = "README.md"
 requires-python = ">= 3.11"
