@@ -1,1 +1,4 @@
-docker compose up --build
+- docker compose up --build
+- run ollama model from backend when server starts
+- check if collection is already created and data indexed
+- index new data via pdf via frontend
