@@ -1,43 +1,56 @@
 version: '3'
+
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "7860:7860"
-    depends_on:
-      - backend
-    networks:
-      - app-network
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile.frontend
+  #   ports:
+  #     - "7860:7860"
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - app-network
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
     ports:
-      - "8000:8000"
+      - "5001:5001"
     depends_on:
-      - chromadb
+      - chroma
       - ollama
-    volumes:
-      - sqlite-data:/app/memory_db  # Mount volume for SQLite memory DB
     networks:
       - app-network
 
-  chromadb:
-    image: chromadb/chromadb:latest
+  chroma:
+    image: ghcr.io/chroma-core/chroma
     volumes:
-      - chromadb-data:/data
+      - index_data:/chroma/.chroma/index
+    ports:
+      - "8000:8000"
     networks:
       - app-network
 
   ollama:
-    image: ghcr.io/jmorganca/ollama:main
+    image: ollama/ollama
     ports:
-      - "11434:11434"
+      - 11434:11434
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+    container_name: ollama
+    tty: true
+    restart: always
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0
     networks:
       - app-network
 
 volumes:
-  chromadb-data:
-  sqlite-data:
+  index_data:
+    driver: local
 
 networks:
   app-network:

@@ -24,3 +24,5 @@ wheels/
 
 # project-specific:
 .DS_Store
+
+ollama
