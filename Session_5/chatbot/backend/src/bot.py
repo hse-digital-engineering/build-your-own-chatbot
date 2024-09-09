@@ -41,7 +41,7 @@ class CustomChatBot:
         self.retriever = self.vector_db.as_retriever()
 
         # Initialize the large language model (LLM) from Ollama
-        self.llm = ChatOllama(model="sam4096/qwen2tools:1.5b")
+        self.llm = ChatOllama(model="sam4096/qwen2tools:1.5b", base_url="http://ollama:11434")
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()
@@ -55,7 +55,7 @@ class CustomChatBot:
         """
         logger.info("Initialize chroma db client.")
         return chromadb.HttpClient(
-            host="localhost",
+            host="chroma",
             port=8000,
             ssl=False,
             settings=Settings(allow_reset=True, anonymized_telemetry=False),
