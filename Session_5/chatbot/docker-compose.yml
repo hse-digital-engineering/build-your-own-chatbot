@@ -51,10 +51,6 @@ services:
     networks:
       - app-network
 
-volumes:
-  index_data:
-    driver: local
-
 networks:
   app-network:
     driver: bridge
