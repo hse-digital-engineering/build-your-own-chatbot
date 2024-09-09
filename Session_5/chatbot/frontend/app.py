@@ -8,7 +8,7 @@ logger.setLevel(logging.INFO)
 
 # WebSocket chat function (fully asynchronous)
 async def websocket_chat(message: str) -> str:
-    uri = "ws://127.0.0.1:5000/ws"
+    uri = "ws://backend:5001/ws"
     try:
         async with websockets.connect(uri) as websocket:
             logger.info(f"Sending message: {message}")
