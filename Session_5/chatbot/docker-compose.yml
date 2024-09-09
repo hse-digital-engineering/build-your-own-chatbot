@@ -1,16 +1,17 @@
 version: '3'
 
 services:
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile.frontend
-  #   ports:
-  #     - "7860:7860"
-  #   depends_on:
-  #     - backend
-  #   networks:
-  #     - app-network
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "7860:7860"
+    container_name: frontend
+    depends_on:
+      - backend
+    networks:
+      - app-network
 
   backend:
     build:
@@ -18,6 +19,7 @@ services:
       dockerfile: Dockerfile.backend
     ports:
       - "5001:5001"
+    container_name: backend
     depends_on:
       - chroma
       - ollama
@@ -30,6 +32,7 @@ services:
       - index_data:/chroma/.chroma/index
     ports:
       - "8000:8000"
+    container_name: chroma
     networks:
       - app-network
 
