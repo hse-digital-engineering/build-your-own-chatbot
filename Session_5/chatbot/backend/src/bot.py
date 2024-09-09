@@ -7,6 +7,10 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+import re
+from uuid import uuid4
 from typing import List
 import logging
 
@@ -36,6 +40,9 @@ class CustomChatBot:
         
         # Get or create the document collection in ChromaDB
         self.vector_db = self._initialize_vector_db()
+
+        # Process pdf, embedd data and index to ChromaDB
+        self._index_data_to_vector_db()
 
         # Initialize the document retriever
         self.retriever = self.vector_db.as_retriever()
@@ -76,6 +83,30 @@ class CustomChatBot:
             collection_name="ai_model_book",
             embedding_function=self.embedding_function
         )
+    
+    def _index_data_to_vector_db(self):
+
+        pdf_doc = "/app/src/AI_Book.pdf"
+
+        # Create pdf data loaders
+        loader = PyPDFLoader(pdf_doc)
+
+        # Load and split documents in chunks
+        pages_chunked = loader.load_and_split(text_splitter=RecursiveCharacterTextSplitter())
+
+        # Function to clean text by removing invalid unicode characters, including surrogate pairs
+        def clean_text(text):
+            # Remove surrogate pairs
+            text = re.sub(r'[\ud800-\udfff]', '', text)
+            # Optionally remove non-ASCII characters (depends on your use case)
+            text = re.sub(r'[^\x00-\x7F]+', '', text)
+            return text
+
+        pages_chunked_cleaned = [clean_text(chunk.page_content) for chunk in pages_chunked]
+
+        uuids = [str(uuid4()) for _ in range(len(pages_chunked_cleaned[:50]))]
+
+        self.vector_db.add_documents(documents=pages_chunked[:50], ids=uuids)
 
     def _initialize_qa_rag_chain(self) -> dict:
         """

@@ -45,34 +45,35 @@ async def websocket_endpoint(websocket: WebSocket):
 
     try:
         while True:
-            # Receive and process input from the WebSocket client
             try:
+                # Receive input from the WebSocket client
                 input_data = await websocket.receive_text()
                 logger.info(f"Received input: {input_data}")
 
-                # Invoke chatbot with the received input
+                # Process the input using the chatbot
                 chain_result = await app.state.chatbot.ainvoke(input_data)
-                logger.info(f"Sent response: {chain_result}")
+                logger.info(f"Sending response: {chain_result}")
+
+                # Send the response back to the client
                 await websocket.send_text(chain_result)
 
-            except WebSocketDisconnect as e:
-                logger.info(f"WebSocket disconnected with code: {e.code}, reason: {e.reason}")
-                logger.error(traceback.format_exc())
+            except WebSocketDisconnect:
+                # Graceful handling of WebSocket disconnection
+                logger.info("Client disconnected.")
                 break
 
             except Exception as e:
+                # Handle unexpected errors during input processing
                 logger.error(f"Error processing chatbot response: {str(e)}")
                 logger.error(traceback.format_exc())
                 await websocket.send_text(f"Error: {str(e)}")
                 break
 
-    except WebSocketDisconnect as e:
-        logger.info(f"Client disconnected with code: {e.code}")
     except Exception as e:
-        logger.error(f"Unexpected error: {str(e)}")
+        logger.error(f"Unexpected WebSocket error: {str(e)}")
         logger.error(traceback.format_exc())
     finally:
-        logger.info('Client disconnected.')
+        logger.info('WebSocket connection closed.')
 
 if __name__ == "__main__":
     # Run the FastAPI app with uvicorn
