@@ -7,9 +7,11 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
-from langchain.tools.retriever import create_retriever_tool
 from typing import List
 import logging
+
+logger = logging.getLogger("uvicorn")
+logger.setLevel(logging.INFO)
 
 class CustomChatBot:
     """
@@ -51,6 +53,7 @@ class CustomChatBot:
         Returns:
             chromadb.HttpClient: A client used to communicate with ChromaDB.
         """
+        logger.info("Initialize chroma db client.")
         return chromadb.HttpClient(
             host="localhost",
             port=8000,
@@ -67,6 +70,7 @@ class CustomChatBot:
         Returns:
             Chroma: A vector database instance connected to the document collection in ChromaDB.
         """
+        logger.info("Initialize chroma vector db.")
         return Chroma(
             client=self.client,
             collection_name="ai_model_book",
@@ -85,6 +89,7 @@ class CustomChatBot:
         Returns:
             dict: The RAG pipeline configuration.
         """
+        logger.info("Initialize rag chain.")
         prompt_template = """
         You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
 
@@ -129,4 +134,5 @@ class CustomChatBot:
         Returns:
             str: The generated answer from the model as a string.
         """
+        logger.info("Async invoke rag chain.")
         return await self.qa_rag_chain.ainvoke(question)
