@@ -1,4 +1,5 @@
 - docker compose up --build
+- docker exec -it ollama sh
 - run ollama model from backend when server starts
 - check if collection is already created and data indexed
 - index new data via pdf via frontend
