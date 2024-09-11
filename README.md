@@ -134,11 +134,11 @@ sequenceDiagram
     participant VectorStore as Vector Store (ChromaDB)
 
     User->>Frontend: Sends a message
-    Frontend->>Backend: Forwards message via REST API
-    Backend->>LLM: Sends message for processing via HTTP
-    LLM-->>Backend: Returns generated response
-    Backend->>VectorStore: Fetches additional context/data (if needed)
-    VectorStore-->>Backend: Returns context/data (if requested)
+    Frontend->>Backend: Forwards message via WebSocket Connection
+    Backend->>VectorStore: Queries for relevant documents
+    VectorStore-->>Backend: Returns relevant context/data
+    Backend->>LLM: Sends message along with context for processing via HTTP
+    LLM-->>Backend: Returns generated response with augmented context
     Backend-->>Frontend: Sends final response
     Frontend-->>User: Displays response
 ```
