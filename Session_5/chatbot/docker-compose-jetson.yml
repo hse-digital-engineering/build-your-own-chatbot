@@ -44,7 +44,6 @@ services:
       - ./ollama/ollama:/root/.ollama
     container_name: ollama
     tty: true
-    restart: always
     command: >
       sh -c "ollama serve & ollama run sam4096/qwen2tools:1.5b"
     environment:
