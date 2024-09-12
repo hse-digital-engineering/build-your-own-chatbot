@@ -17,6 +17,8 @@ import logging
 logger = logging.getLogger("uvicorn")
 logger.setLevel(logging.INFO)
 
+# Gerüst stehen lassen -> Transfer von Session 4 zu 5
+
 class CustomChatBot:
     """
     A class representing a chatbot that uses a ChromaDB client for document retrieval
