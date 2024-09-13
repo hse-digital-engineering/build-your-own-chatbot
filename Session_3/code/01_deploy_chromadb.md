@@ -1,22 +1,58 @@
-#### Task: Set Up a Vector Database (e.g., ChromaDB) with Docker
+# Setting Up a Vector Database (ChromaDB) with Docker
 
-**Objective:**
-Set up and configure a vector database using Docker to store and manage vector embeddings efficiently.
+## Objective
 
-**Task Description:**
-In this task, you will pull the Docker image for ChromaDB. You will then create and configure a container for ChromaDB, ensuring it is properly set up to interact with your Python environment in the Jupyter Notebook. This setup will be the foundation for storing and retrieving vector embeddings in subsequent tasks.
+Set up and configure ChromaDB—a vector database—using Docker to efficiently store and manage vector embeddings.
 
-**How to:**
+## Overview
 
-Running Chroma server locally can be achieved via a simple docker command as shown below.
+This guide will help you:
 
+- Pull the ChromaDB Docker image.
+- Create and configure a ChromaDB container.
+- Ensure seamless interaction with your Python environment in Jupyter Notebook.
+
+This setup will serve as the foundation for storing and retrieving vector embeddings in subsequent tasks.
+
+## Steps to Deploy ChromaDB Using Docker
+
+1. **Pull the ChromaDB Docker Image**
+
+   ```bash
+   docker pull chromadb/chroma
+   ```
+
+2. **Run the ChromaDB Container**
+
+   ```bash
+   docker run -d -p 8000:8000 chromadb/chroma
+   ```
+
+   - **Optional Flags and Environment Variables:**
+     - `-v [local_dir]:[container_dir]`: Mounts a local directory to the container. This is where ChromaDB will store its data, ensuring data persistence even if the container is destroyed.
+       - **Note:** If you use `-e PERSIST_DIRECTORY`, point the volume to that directory.
+     - `-e IS_PERSISTENT=TRUE`: Instructs ChromaDB to persist data.
+     - `-e PERSIST_DIRECTORY=/path/in/container`: Specifies the path inside the container where data will be stored. The default is `/chroma/chroma`.
+     - `chromadb/chroma:latest`: Specifies the ChromaDB version. Replace `latest` with a specific tag if you need a prior version (e.g., `chromadb/chroma:0.4.24`).
+
+## Example with Data Persistence
+
+To run ChromaDB with data persistence:
+
+```bash
+docker run -d \
+  -p 8000:8000 \
+  -v /local/path/to/data:/chroma/chroma \
+  -e IS_PERSISTENT=TRUE \
+  -e PERSIST_DIRECTORY=/chroma/chroma \
+  chromadb/chroma
 ```
-docker pull chromadb/chroma
-docker run -d -p 8000:8000 chromadb/chroma
-```
 
-- -v specifies a local dir which is where Chroma will store its data so when the container is destroyed the data remains. Note: If you are using -e PERSIST_DIRECTORY then you need to point the volume to that directory.
-- -e IS_PERSISTENT=TRUE let’s Chroma know to persist data
-- -e PERSIST_DIRECTORY=/path/in/container specifies the path in the container where the data will be stored, by default it is /chroma/chroma
-- -e ANONYMIZED_TELEMETRY=TRUE allows you to turn on (TRUE) or off (FALSE) anonymous product telemetry which helps the Chroma team in making informed decisions about Chroma OSS and commercial direction.
-- chromadb/chroma:latest indicates the latest Chroma version but can be replaced with any valid tag if a prior version is needed (e.g. chroma:0.4.24)
+- Replace `/local/path/to/data` with the path to a directory on your local machine where you want ChromaDB to store data.
+- Ensure that the `PERSIST_DIRECTORY` matches the container path you've specified in the `-v` flag.
+
+## Notes
+
+- **Port Mapping (`-p 8000:8000`):** Exposes ChromaDB on port `8000`. Ensure this port is available and not blocked by a firewall.
+- **Data Persistence:** Using the `-v` flag with a local directory ensures that your data remains intact even if the Docker container is removed.
+- **Environment Variables:** Adjust the `IS_PERSISTENT` and `PERSIST_DIRECTORY` variables based on your requirements.
