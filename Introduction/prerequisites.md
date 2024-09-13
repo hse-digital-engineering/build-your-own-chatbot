@@ -1,9 +1,16 @@
-Pre-Installation
+#### Pre-Installation
 
-- SSD installation 
-- Docker installation, mount docker to SSD
-- VSCode installation
-- VSCode Extensions installation:
+- SSD Mount + Docker Installation: [How To](https://www.jetson-ai-lab.com/tips_ssd-docker.html)
+- Update System via sudo apt-get update  & sudo apt-get upgrade & sudo apt-get autoremove
+- Install Git
+- Clone Repo Build your own Chatbot to /ssd
+- Install Python
+- Install rye
+- Install VSCode
+- Install recommended VSCode Extensions
+- Install jtop
+
+**VSCode Extensions:**
 
 ```json
 {
@@ -22,4 +29,4 @@ Pre-Installation
 }
 ````
 
-- Clone github repo to SSD & checkout brancx <xxx>
+Run rye sync in repository to create `.venv` with dependencies.
