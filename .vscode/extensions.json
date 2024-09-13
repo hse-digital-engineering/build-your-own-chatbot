@@ -9,6 +9,7 @@
         "mhutchie.git-graph",
         "ms-vscode-remote.remote-containers",
         "ms-python.isort",
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "wayou.vscode-todo-highlight"
     ]
 }

@@ -1,12 +1,33 @@
-## Deploying a Large Language Model (LLM) on Jetson Orin Nano using Ollama
+## Deploying a Large Language Model (LLM) on Jetson Orin Nano with Ollama
 
 ### Overview
 
-This guide outlines the steps to deploy and run a Large Language Model (LLM) on the Jetson Orin Nano using Ollama. Ollama is a versatile framework for running large language models locally. The steps include setting up the environment, running the container, and interacting with the model within the container.
+This guide provides a streamlined approach to deploying and running a Large Language Model (LLM) on the Jetson Orin Nano using Ollama, a powerful framework for running LLMs locally. You will learn how to set up the environment, deploy a pre-built Docker container, and interact with the model inside the container.
 
-For detailed documentation, visit: [Jetson AI Lab Ollama Tutorial](https://www.jetson-ai-lab.com/tutorial_ollama.html).
+For detailed documentation, refer to: [Jetson AI Lab Ollama Tutorial](https://www.jetson-ai-lab.com/tutorial_ollama.html).
 
-### Steps for Deployment
+---
+
+### Deployment Steps Using a Pre-Built Container
+
+1. Pull the Docker image:
+   ```bash
+   docker pull dustynv/ollama:r36.2.0
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r36.2.0
+   ```
+
+3. Execute the model inside the running container:
+   ```bash
+   docker exec -it ollama ollama run sam4096/qwen2tools:1.5b
+   ```
+
+---
+
+### Steps for Building and Deployment from scratch
 
 #### 1. Clone the Container Repository
 
@@ -51,11 +72,13 @@ jetson-containers run --name ollama $(autotag ollama)
 To manually download and run a specific LLM model, such as Llama 3.1, inside the Ollama container, use the following command:
 
 ```bash
-docker exec -it ollama ollama run llama3.1
+docker exec -it ollama ollama run sam4096/qwen2tools:1.5b
 ```
 
 - `docker exec -it ollama`: Executes commands inside the running Ollama container.
-- `ollama run llama3.1`: Runs the specified model (`llama3.1`) within the container.
+- `ollama run sam4096/qwen2tools:1.5b`: Runs the specified model (`sam4096/qwen2tools:1.5b`) within the container.
+
+---
 
 ### Access the Container Shell
 
@@ -68,6 +91,8 @@ docker exec -it ollama sh
 ```
 
 This command opens an interactive shell session within the Ollama container.
+
+---
 
 ### Interact with Ollama in the Container Shell
 
@@ -97,7 +122,7 @@ ollama [command] [flags]
 
 1. **Run a Model**:
    ```bash
-   ollama run llama3.1
+   ollama run sam4096/qwen2tools:1.5b
    ```
 
 2. **List Available Models**:
@@ -107,9 +132,5 @@ ollama [command] [flags]
 
 3. **Pull a Model from a Registry**:
    ```bash
-   ollama pull llama3.1
+   ollama pull sam4096/qwen2tools:1.5b
    ```
-
-### Conclusion
-
-This guide provides a comprehensive walkthrough for deploying and interacting with a Large Language Model (LLM) on the Jetson Orin Nano using Ollama. By following these steps, you can leverage the power of Nvidia's Jetson platform to run advanced language models efficiently.
