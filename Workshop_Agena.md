@@ -137,3 +137,10 @@ Erweiterungs Ideen:
 Eigene Ideen:
 
 - Studierende überlegen sich eigene Ideen / Features
+
+
+
+
+- RAG Theorie kürzer
+- Install Liste
+- theorie parts auf 20 min kürzen
