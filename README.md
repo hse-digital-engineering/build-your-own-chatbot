@@ -7,8 +7,7 @@ Welcome to the "Build Your Own Chatbot" workshop! This workshop will guide you t
 By participating in this workshop, you will achieve the following:
 
 - **Personalized Learning Assistant**: Create a chatbot that acts as a learning tutor.
-- **Interactive Study Tool**: Upload lecture scripts, ask questions about the content, or generate exam-related questions.
-- **Exam Preparation Support**: Use the chatbot to reinforce your understanding of key topics.
+- **Interactive Study Tool**: Use lecture scripts, ask questions about the content, or generate exam-related questions.
 
 ## Overview
 
@@ -100,7 +99,7 @@ graph TD
             VectorStore(ChromaDB Vector Store)
         end
 
-        Frontend -->|REST API| Backend
+        Frontend -->|Websocket API| Backend
         Backend -->|HTTP| LLM
         Backend -->|HTTP| VectorStore
     end
@@ -119,7 +118,7 @@ graph TD
     - **VectorStore (ChromaDB Vector Store)**: Manages vector representations of text data for efficient querying.
 
 3. **Development and Communication Flow**:
-    - **Frontend to Backend**: Communication via REST API.
+    - **Frontend to Backend**: Communication via Websocket API.
     - **Backend to LLM and VectorStore**: Interaction through HTTP requests.
     - **Remote Development**: Developers interact with the NVIDIA Jetson Orin Nano remotely for development purposes.
 
@@ -154,58 +153,63 @@ This repository serves as the project template for the workshop.
 Here’s a breakdown of the project structure with an explanation of each component:
 
 ```plaintext
-├── .devcontainer
-│   └── devcontainer.json               # Configuration for the development container setup
-├── .editorconfig                        # EditorConfig file for maintaining consistent coding styles across editors
-├── .env.example                         # Example environment configuration file
-├── .github
-│   └── workflows
-│       └── checks.yml                   # GitHub Actions workflow for automated checks (linting, testing, etc.)
-├── .gitignore                           # Git ignore file to specify files and directories to be ignored by Git
-├── .pre-commit-config.yaml              # Configuration for pre-commit hooks
-├── pyproject.toml                       # Project metadata and configuration file for Python packaging and tools
-├── .python-version                      # Specifies the Python version used in the project
-├── README.md                            # Project README file
-├── requirements-dev.lock                # Locked file for development dependencies
-├── requirements.lock                    # Locked file for project dependencies
-├── src
-│   ├── chatbot
-│   │   ├── backend                      # Backend code (e.g., APIs, database interaction, business logic)
-│   │   └── frontend                     # Frontend code (e.g., UI components, Gradio interface)
-│   └── prototyping                      # Prototyping code and scripts for initial experiments
-└── tests
-    └── test_aaa.py                      # Unit tests for the project (following Pytest conventions)
+├── Introduction
+│   ├── Introduction Slides.pdf          # Overview of the workshop and prerequisites
+│   └── prerequisites.md                 # List of prerequisites for the workshop
+├── README.md                            # This file: documentation for the project
+├── Session_1
+│   ├── code
+│   │   ├── 01_deploy_model.md           # Instructions on deploying a model
+│   │   ├── 02_tasks.ipynb               # Jupyter Notebook with tasks for the session
+│   │   └── 03_solutions.ipynb           # Solutions for the tasks
+│   └── slides
+│       └── Session 1 Slides.pdf         # PDF slides for Session 1
+├── Session_2
+│   ├── code
+│   │   ├── 01_tasks.ipynb               # Tasks for Session 2
+│   │   └── 02_solutions.ipynb           # Solutions for Session 2
+│   └── slides
+│       └── Session 2 Slides.pdf         # PDF slides for Session 2
+├── Session_3
+│   ├── code
+│   │   ├── 01_deploy_chromadb.md        # Instructions to deploy ChromaDB
+│   │   ├── 02_tasks.ipynb               # Tasks for Session 3
+│   │   ├── 03_solutions.ipynb           # Solutions for Session 3
+│   │   └── AI_Book.pdf                  # Reference materials for AI deployment
+│   └── slides
+│       └── Session 3 Slides.pdf         # PDF slides for Session 3
+├── Session_4
+│   ├── code
+│   │   ├── 01_tasks.ipynb               # Tasks for Session 4
+│   │   └── 02_solutions.ipynb           # Solutions for Session 4
+│   └── slides
+│       └── Session 4 Slides.pdf         # PDF slides for Session 4
+├── Session_5
+│   ├── chatbot_solution
+│   │   ├── README_CHATBOT.md            # Documentation for the chatbot solution
+│   │   ├── backend
+│   │   │   ├── Dockerfile.backend       # Dockerfile for backend services
+│   │   │   ├── main.py                  # Main backend logic
+│   │   │   ├── pyproject.toml           # Backend configuration
+│   │   │   ├── requirements.lock        # Locked dependencies for backend
+│   │   │   └── src
+│   │   │       ├── AI_Book.pdf          # Reference materials for chatbot
+│   │   │       └── bot.py               # Chatbot code
+│   ├── chatbot_task                     # Task for creating chatbot (similar structure)
+│   │   ├── backend
+│   └── slides
+│       └── Session 5 Slides.pdf         # PDF slides for Session 5
+├── pyproject.toml                       # Project metadata and configuration
+├── requirements-dev.lock                # Locked development dependencies
+├── requirements.lock                    # Locked dependencies
+└── Workshop_Agena.md                    # Detailed agenda for the workshop
 ```
 
-**Explanation of the Project Structure**
+### Additional Key Directories
 
-- **`.devcontainer/`**: Contains the `devcontainer.json` configuration, which sets up a consistent development environment using Visual Studio Code’s Dev Containers feature. This ensures that all developers work within the same environment, reducing "it works on my machine" issues.
-
-- **`.editorconfig`**: A file that helps maintain consistent coding styles between different editors and IDEs. It defines rules like indentation styles, line endings, and more.
-
-- **`.env.example`**: An example of the environment variables required for the project. Developers should copy this file to `.env` and fill in their specific values.
-
-- **`.github/`**: Contains GitHub Actions workflows. The `checks.yml` file defines automated actions like linting, testing, and other checks that run on pull requests to maintain code quality.
-
-- **`.gitignore`**: Specifies which files and directories should be ignored by Git, preventing sensitive or unnecessary files from being committed to the repository.
-
-- **`.pre-commit-config.yaml`**: Configuration file for Pre-Commit hooks, which run automated checks (like linting and formatting) before code is committed to the repository.
-
-- **`pyproject.toml`**: A configuration file that contains project metadata, dependency management, and configurations for various tools like Rye, Pyright, and Ruff. This is the core configuration file for the project.
-
-- **`.python-version`**: Specifies the version of Python to be used for the project, ensuring consistency across different environments.
-
-- **`README.md`**: The primary documentation file for the project, containing an overview, setup instructions, usage guidelines, and more.
-
-- **`requirements-dev.lock` & `requirements.lock`**: Locked versions of the project’s dependencies, ensuring that everyone uses the exact same versions of libraries and tools, avoiding compatibility issues.
-
-- **`src/`**: The source directory containing all the main code for the project.
-  - **`chatbot/`**: Contains the core chatbot code.
-    - **`backend/`**: Handles all backend-related tasks like API logic, data handling, and business logic.
-    - **`frontend/`**: Contains the frontend code, particularly the Gradio interface used for interacting with the chatbot.
-  - **`prototyping/`**: Used for initial experiments and prototypes, allowing developers to try out ideas before integrating them into the main codebase.
-
-- **`tests/`**: Contains unit tests for the project, ensuring that all components work as expected. The tests follow the Pytest conventions, with files prefixed by `test_`.
+- **`src/chatbot/backend/`**: Backend logic including APIs, chatbot model interaction, and business logic.
+- **`src/chatbot/frontend/`**: The Gradio frontend for user interaction with the chatbot.
+- **`Session_5/chatbot_task/`**: Contains the backend and frontend code used in the workshop tasks.
 
 ### Tools and Technologies
 
