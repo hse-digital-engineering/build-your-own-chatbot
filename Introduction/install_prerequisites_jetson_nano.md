@@ -33,7 +33,7 @@
 5. **Clone Repository**
    Clone your chatbot project to the SSD:
    ```bash
-   git clone <repo-url> /ssd/chatbot
+   git clone <repo-url> /ssd/build-your-own-chatbot
    ```
 
 6. **VSCode Setup**
@@ -71,6 +71,6 @@
 7. **Set Up Virtual Environment & Dependencies**
    Navigate to the project directory and sync dependencies:
    ```bash
-   cd /ssd/chatbot
+   cd /ssd/build-your-own-chatbot
    rye sync
    ```
