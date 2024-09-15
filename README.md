@@ -202,7 +202,7 @@ Here’s a breakdown of the project structure with an explanation of each compon
 ├── pyproject.toml                       # Project metadata and configuration
 ├── requirements-dev.lock                # Locked development dependencies
 ├── requirements.lock                    # Locked dependencies
-└── Workshop_Agena.md                    # Detailed agenda for the workshop
+└── Workshop_Timeline.md                 # Detailed timeline for the workshop
 ```
 
 ### Additional Key Directories
