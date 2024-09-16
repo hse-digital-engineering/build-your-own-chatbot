@@ -3,7 +3,7 @@ name = "chatbot"
 version = "1.0.0"
 description = "Workshop build your own chatbot"
 authors = [
-    { name = "Max", email = "Max@example-project-with-rye.com" }
+    { name = "Martin Kovacs", email = "martin-kovacs@web.de" }
 ]
 dependencies = [
     "langchain>=0.2.6",
