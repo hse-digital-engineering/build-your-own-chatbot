@@ -153,63 +153,90 @@ This repository serves as the project template for the workshop.
 Here’s a breakdown of the project structure with an explanation of each component:
 
 ```plaintext
+.
 ├── Introduction
-│   ├── Introduction Slides.pdf          # Overview of the workshop and prerequisites
-│   └── prerequisites.md                 # List of prerequisites for the workshop
-├── README.md                            # This file: documentation for the project
+│   ├── Introduction Slides.pdf                 # Overview of the workshop, objectives, and agenda
+│   ├── install_prerequisites_jetson_nano.md    # Step-by-step guide to install prerequisites on Jetson Nano
+│   └── startup_dev_env.md                      # Instructions for setting up the development environment
+├── README.md                                    # Main documentation file for the project
 ├── Session_1
 │   ├── code
-│   │   ├── 01_deploy_model.md           # Instructions on deploying a model
-│   │   ├── 02_tasks.ipynb               # Jupyter Notebook with tasks for the session
-│   │   └── 03_solutions.ipynb           # Solutions for the tasks
+│   │   ├── 01_deploy_model.md                   # Instructions on deploying a machine learning model
+│   │   ├── 02_tasks.ipynb                       # Jupyter Notebook with tasks for Session 1
+│   │   └── 03_solutions.ipynb                   # Solutions for the tasks in Session 1
 │   └── slides
-│       └── Session 1 Slides.pdf         # PDF slides for Session 1
+│       └── Session 1 Slides.pdf                 # Presentation slides for Session 1
 ├── Session_2
 │   ├── code
-│   │   ├── 01_tasks.ipynb               # Tasks for Session 2
-│   │   └── 02_solutions.ipynb           # Solutions for Session 2
+│   │   ├── 01_tasks.ipynb                       # Jupyter Notebook with tasks for Session 2
+│   │   └── 02_solutions.ipynb                   # Solutions for the tasks in Session 2
 │   └── slides
-│       └── Session 2 Slides.pdf         # PDF slides for Session 2
+│       └── Session 2 Slides.pdf                 # Presentation slides for Session 2
 ├── Session_3
 │   ├── code
-│   │   ├── 01_deploy_chromadb.md        # Instructions to deploy ChromaDB
-│   │   ├── 02_tasks.ipynb               # Tasks for Session 3
-│   │   ├── 03_solutions.ipynb           # Solutions for Session 3
-│   │   └── AI_Book.pdf                  # Reference materials for AI deployment
+│   │   ├── 01_deploy_chromadb.md                # Instructions to deploy ChromaDB
+│   │   ├── 02_tasks.ipynb                       # Jupyter Notebook with tasks for Session 3
+│   │   ├── 03_solutions.ipynb                   # Solutions for the tasks in Session 3
+│   │   └── AI_Book.pdf                          # Reference materials for the knowledge base
 │   └── slides
-│       └── Session 3 Slides.pdf         # PDF slides for Session 3
+│       └── Session 3 Slides.pdf                 # Presentation slides for Session 3
 ├── Session_4
 │   ├── code
-│   │   ├── 01_tasks.ipynb               # Tasks for Session 4
-│   │   └── 02_solutions.ipynb           # Solutions for Session 4
+│   │   ├── 01_tasks.ipynb                       # Jupyter Notebook with tasks for Session 4
+│   │   └── 02_solutions.ipynb                   # Solutions for the tasks in Session 4
 │   └── slides
-│       └── Session 4 Slides.pdf         # PDF slides for Session 4
+│       └── Session 4 Slides.pdf                 # Presentation slides for Session 4
 ├── Session_5
 │   ├── chatbot_solution
-│   │   ├── README_CHATBOT.md            # Documentation for the chatbot solution
+│   │   ├── README_CHATBOT.md                    # Documentation outlining the chatbot solution project
 │   │   ├── backend
-│   │   │   ├── Dockerfile.backend       # Dockerfile for backend services
-│   │   │   ├── main.py                  # Main backend logic
-│   │   │   ├── pyproject.toml           # Backend configuration
-│   │   │   ├── requirements.lock        # Locked dependencies for backend
+│   │   │   ├── Dockerfile.backend               # Dockerfile for backend services
+│   │   │   ├── main.py                          # Main backend application logic
+│   │   │   ├── pyproject.toml                   # Backend configuration file
+│   │   │   ├── requirements-dev.lock            # Locked development dependencies for backend
+│   │   │   ├── requirements.lock                # Locked production dependencies for backend
 │   │   │   └── src
-│   │   │       ├── AI_Book.pdf          # Reference materials for chatbot
-│   │   │       └── bot.py               # Chatbot code
-│   ├── chatbot_task                     # Task for creating chatbot (similar structure)
+│   │   │       ├── AI_Book.pdf                  # Reference materials for the chatbot's knowledge base
+│   │   │       ├── __init__.py                  # Initializes the backend Python package
+│   │   │       └── bot.py                       # Core chatbot functionality and logic
+│   │   ├── chroma                               # ChromaDB-related configurations and scripts
+│   │   ├── docker-compose-jetson.yml            # Docker Compose configuration for Jetson Nano
+│   │   ├── docker-compose.yml                   # Standard Docker Compose configuration for chatbot services
+│   │   ├── frontend
+│   │   │   ├── Dockerfile.frontend              # Dockerfile for frontend services
+│   │   │   ├── app.py                           # Frontend application logic
+│   │   │   ├── pyproject.toml                   # Frontend configuration file
+│   │   │   ├── requirements-dev.lock            # Locked development dependencies for frontend
+│   │   │   └── requirements.lock                # Locked production dependencies for frontend
+│   ├── chatbot_task
+│   │   ├── README_CHATBOT.md                    # Documentation outlining the chatbot task project for participants
 │   │   ├── backend
+│   │   │   ├── Dockerfile.backend               # Dockerfile for backend services
+│   │   │   ├── main.py                          # Main backend application logic for the task
+│   │   │   ├── pyproject.toml                   # Backend configuration file 
+│   │   │   ├── requirements-dev.lock            # Locked development dependencies for backend 
+│   │   │   ├── requirements.lock                # Locked production dependencies for backend 
+│   │   │   └── src
+│   │   │       ├── AI_Book.pdf                  # Reference materials for the chatbot's knowledge base 
+│   │   │       ├── __init__.py                  # Initializes the backend Python package 
+│   │   │       └── bot.py                       # Core chatbot functionality and logic 
+│   │   ├── docker-compose-jetson.yml            # Docker Compose configuration for Jetson Nano 
+│   │   ├── docker-compose.yml                   # Standard Docker Compose configuration for chatbot services 
+│   │   └── frontend
+│   │       ├── Dockerfile.frontend              # Dockerfile for frontend services 
+│   │       ├── app.py                           # Frontend application logic 
+│   │       ├── pyproject.toml                   # Frontend configuration file 
+│   │       ├── requirements-dev.lock            # Locked development dependencies for frontend 
+│   │       └── requirements.lock                # Locked production dependencies for frontend 
 │   └── slides
-│       └── Session 5 Slides.pdf         # PDF slides for Session 5
-├── pyproject.toml                       # Project metadata and configuration
-├── requirements-dev.lock                # Locked development dependencies
-├── requirements.lock                    # Locked dependencies
-└── Workshop_Timeline.md                 # Detailed timeline for the workshop
+│       └── Session 5 Slides.pdf                 # Presentation slides for Session 5
+├── Workshop_Timeline.md                          # Detailed timeline outlining the workshop schedule
+├── pyproject.toml                                # Configuration and metadata for the overall project
+├── requirements-dev.lock                         # Locked development dependencies for consistent environments
+└── requirements.lock                             # Locked production dependencies for consistent deployments
 ```
 
-### Additional Key Directories
-
-- **`src/chatbot/backend/`**: Backend logic including APIs, chatbot model interaction, and business logic.
-- **`src/chatbot/frontend/`**: The Gradio frontend for user interaction with the chatbot.
-- **`Session_5/chatbot_task/`**: Contains the backend and frontend code used in the workshop tasks.
+---
 
 ### Tools and Technologies
 
