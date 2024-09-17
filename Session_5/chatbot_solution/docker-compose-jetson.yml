@@ -27,6 +27,8 @@ services:
       - ollama
     networks:
       - app-network
+    volumes:
+      - ./backend:/app 
 
   chroma:
     image: chromadb/chroma

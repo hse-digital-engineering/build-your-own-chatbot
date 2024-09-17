@@ -20,4 +20,7 @@ COPY . /app
 EXPOSE 5001
 
 # Start the FastAPI application using uvicorn for better performance
-CMD ["python", "main.py"]
+# CMD ["python", "main.py"]
+
+# Start the FastAPI application using uvicorn for better performance with autoreload
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5001", "--reload"]
