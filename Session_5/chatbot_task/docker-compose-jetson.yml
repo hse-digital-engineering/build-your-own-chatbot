@@ -1,5 +1,7 @@
 version: '3'
 
+name: chatbot
+
 services:
   frontend:
     build:

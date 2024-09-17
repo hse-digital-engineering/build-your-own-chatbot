@@ -1,5 +1,7 @@
 version: '3'
 
+name: chatbot
+
 services:
   frontend:
     build:
@@ -27,7 +29,7 @@ services:
       - app-network
 
   chroma:
-    image: ghcr.io/chroma-core/chroma
+    image: chromadb/chroma
     volumes:
       - ./chroma:/chroma/.chroma/index
     ports:
