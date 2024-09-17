@@ -27,6 +27,9 @@ services:
       - ollama
     networks:
       - app-network
+    volumes:
+      - ./backend:/app 
+
 
   chroma:
     image: ghcr.io/chroma-core/chroma
