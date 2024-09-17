@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
     FastAPI lifespan manager to ensure CustomChatBot is initialized and cleaned up correctly.
     """
     logger.info("Creating instance of custom chatbot.")
-    app.state.chatbot = CustomChatBot()
+    app.state.chatbot = CustomChatBot(index_data=True)
     try:
         yield
     finally:
@@ -50,12 +50,12 @@ async def websocket_endpoint(websocket: WebSocket):
                 input_data = await websocket.receive_text()
                 logger.info(f"Received input: {input_data}")
 
-                # Process the input using the chatbot
-                chain_result = await app.state.chatbot.ainvoke(input_data)
-                logger.info(f"Sending response: {chain_result}")
-
-                # Send the response back to the client
-                await websocket.send_text(chain_result)
+                # Process the input using the chatbot's stream_answer method
+                async for chunk in app.state.chatbot.astream(input_data):
+                    chain_result = chunk
+                    logger.info(f"Sending chunk: {chain_result}")
+                    # Send the response chunk back to the client
+                    await websocket.send_text(chain_result)
 
             except WebSocketDisconnect:
                 # Graceful handling of WebSocket disconnection

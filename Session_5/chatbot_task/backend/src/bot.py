@@ -1,11 +1,14 @@
 import chromadb
 from chromadb.config import DEFAULT_TENANT, DEFAULT_DATABASE, Settings
 from langchain.memory import ConversationBufferMemory
+from langchain_core.documents.base import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables import RunnablePassthrough, RunnableSerializable
+from langchain_core.load.serializable import Serializable
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from chromadb.api import ClientAPI
 from langchain_ollama import ChatOllama
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -29,7 +32,7 @@ class CustomChatBot:
     concise answers using a language model (ChatOllama).
     """
 
-    def __init__(self) -> None:
+    def __init__(self, index_data: bool = True) -> None:
         """
         Initialize the CustomChatBot class by setting up the ChromaDB client for document retrieval
         and the ChatOllama language model for answer generation.
@@ -44,10 +47,11 @@ class CustomChatBot:
         self.vector_db = self._initialize_vector_db()
 
         # Process pdf, embedd data and index to ChromaDB
-        self._index_data_to_vector_db()
+        if index_data:
+            self._index_data_to_vector_db()
 
         # Initialize the document retriever
-        self.retriever = self.vector_db.as_retriever()
+        self.retriever = self.vector_db.as_retriever(k=3)
 
         # Initialize the large language model (LLM) from Ollama
         # TODO: ADD HERE YOUR CODE
@@ -56,7 +60,7 @@ class CustomChatBot:
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()
 
-    def _initialize_chroma_client(self) -> chromadb.HttpClient:
+    def _initialize_chroma_client(self) -> ClientAPI:
         """
         Initialize and return a ChromaDB HTTP client for document retrieval.
 
@@ -78,7 +82,7 @@ class CustomChatBot:
         logger.info("Initialize chroma vector db.")
 
         # TODO: ADD HERE YOUR CODE
-        pass
+        ...
     
     def _index_data_to_vector_db(self):
 
@@ -86,7 +90,7 @@ class CustomChatBot:
         ...
 
 
-    def _initialize_qa_rag_chain(self) -> dict:
+    def _initialize_qa_rag_chain(self) -> RunnableSerializable[Serializable, str]:
         """
         Set up the retrieval-augmented generation (RAG) pipeline for answering questions.
         
@@ -102,12 +106,12 @@ class CustomChatBot:
         # TODO: ADD HERE YOUR CODE
         ...
 
-    def _format_docs(self, docs: List[dict]) -> str:
+    def _format_docs(self, docs: List[Document]) -> str:
         """
         Helper function to format the retrieved documents into a single string.
         
         Args:
-            docs (List[dict]): A list of documents retrieved by ChromaDB.
+            docs (List[Document]): A list of documents retrieved by ChromaDB.
 
         Returns:
             str: A string containing the concatenated content of all retrieved documents.
@@ -116,17 +120,21 @@ class CustomChatBot:
         # TODO: ADD HERE YOUR CODE
         ...
 
-    async def ainvoke(self, question: str) -> str:
+    async def astream(self, question: str):
         """
-        Handle a user query asynchronously by running the question through the RAG pipeline.
-        
+        Handle a user query asynchronously by running the question through the RAG pipeline and stream the answer.
+
         Args:
             question (str): The user's question as a string.
 
-        Returns:
-            str: The generated answer from the model as a string.
+        Yields:
+            str: The generated answer from the model, streamed chunk by chunk.
         """
-        logger.info("Async invoke rag chain.")
-        
-        # TODO: ADD HERE YOUR CODE
-        ...
+        logger.info("Streaming RAG chain response.")
+        try:
+            async for chunk in self.qa_rag_chain.astream(question):
+                logger.debug(f"Yielding chunk: {chunk}")
+                yield chunk
+        except Exception as e:
+            logger.error(f"Error in stream_answer: {e}", exc_info=True)
+            raise
