@@ -32,7 +32,7 @@ services:
 
 
   chroma:
-    image: ghcr.io/chroma-core/chroma
+    image: chromadb/chroma
     volumes:
       - ./chroma:/chroma/.chroma/index
     ports:
