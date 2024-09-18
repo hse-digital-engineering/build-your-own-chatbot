@@ -12,12 +12,12 @@ For detailed documentation, refer to: [Jetson AI Lab Ollama Tutorial](https://ww
 
 1. Pull the Docker image:
    ```bash
-   docker pull dustynv/ollama:r36.2.0
+   docker pull dustynv/ollama:r35.4.1
    ```
 
 2. Run the container:
    ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r36.2.0
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r35.4.1
    ```
 
 3. Execute the model inside the running container:
