@@ -1,5 +1,7 @@
 ### Pre-Installation
 
+> Check if the Orin has the correct date: Execute `date` on a terminal.
+
 1. **Mount SSD & Install Docker**  
    Follow the instructions in [this guide](https://www.jetson-ai-lab.com/tips_ssd-docker.html).
 
@@ -27,8 +29,14 @@
 4. **Install Rye**  
    Install Rye, a Python toolchain manager:
    ```bash
-   curl -sSf https://rye-up.com/get | sh
+   curl -sSf https://rye.astral.sh/get | bash
+   echo 'source "$HOME/.rye/env"' >> ~/.bashrc
    ```
+
+   Use:
+   
+   - UV as dependency manager 
+   - python version managed by rye: 3.11
 
 5. **Clone Repository**
    Clone your chatbot project to the SSD:
