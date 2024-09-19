@@ -29,6 +29,8 @@ For detailed documentation, refer to: [Jetson AI Lab Ollama Tutorial](https://ww
 
 ### Steps for Building and Deployment from scratch
 
+> Use this when working on jetpack 5. dustynv/ollama:r36.2.0 only works on jetpack 6
+
 #### 1. Clone the Container Repository
 
 The first step is to clone the repository containing the Jetson-compatible containers. This repository provides pre-built containers optimized for Nvidia Jetson devices, including the Orin Nano.
