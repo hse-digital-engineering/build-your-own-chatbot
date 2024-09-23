@@ -59,7 +59,7 @@ This script sets up the environment, installs dependencies, and configures the s
 
 Once the installation is complete, you can run the Ollama container. The container is designed to leverage the Jetson Orin Nano's capabilities, providing an optimized environment for running LLMs.
 
-Use the following command to start the container:
+Use the following command to start the container (root directory and terminal outside VS-Code):
 
 ```bash
 jetson-containers run --name ollama $(autotag ollama)
@@ -72,6 +72,8 @@ jetson-containers run --name ollama $(autotag ollama)
 ### Manually Download and Run a LLM in the Ollama Container
 
 To manually download and run a specific LLM model, such as Llama 3.1, inside the Ollama container, use the following command:
+
+TODO Hinweis Mario: Es ist unklar, ob man in einem Container ist oder ausserhalb (gibt es in der Command Line dazu Möglichkeiten, dass der Teilnehmer dies sehen kann? Würde zum erstmaligen Verständnis besser sein)
 
 ```bash
 docker exec -it ollama ollama run sam4096/qwen2tools:1.5b
