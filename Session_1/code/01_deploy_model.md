@@ -22,7 +22,7 @@ For detailed documentation, refer to: [Jetson AI Lab Ollama Tutorial](https://ww
 
 3. Execute the model inside the running container:
    ```bash
-   docker exec -it ollama ollama run sam4096/qwen2tools:1.5b
+   docker exec -it ollama ollama run llama3.2
    ```
 
 ---
@@ -76,11 +76,11 @@ To manually download and run a specific LLM model, such as Llama 3.1, inside the
 TODO Hinweis Mario: Es ist unklar, ob man in einem Container ist oder ausserhalb (gibt es in der Command Line dazu Möglichkeiten, dass der Teilnehmer dies sehen kann? Würde zum erstmaligen Verständnis besser sein)
 
 ```bash
-docker exec -it ollama ollama run sam4096/qwen2tools:1.5b
+docker exec -it ollama ollama run llama3.2
 ```
 
 - `docker exec -it ollama`: Executes commands inside the running Ollama container.
-- `ollama run sam4096/qwen2tools:1.5b`: Runs the specified model (`sam4096/qwen2tools:1.5b`) within the container.
+- `ollama run llama3.2`: Runs the specified model (`llama3.2`) within the container.
 
 ---
 
@@ -126,7 +126,7 @@ ollama [command] [flags]
 
 1. **Run a Model**:
    ```bash
-   ollama run sam4096/qwen2tools:1.5b
+   ollama run llama3.2
    ```
 
 2. **List Available Models**:
@@ -136,5 +136,5 @@ ollama [command] [flags]
 
 3. **Pull a Model from a Registry**:
    ```bash
-   ollama pull sam4096/qwen2tools:1.5b
+   ollama pull llama3.2
    ```
