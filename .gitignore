@@ -166,4 +166,4 @@ cython_debug/
 
 ollama
 chroma
-embedding_model
+Session_5/chatbot_task/backend/src/embedding_model
