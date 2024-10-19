@@ -52,7 +52,7 @@ class CustomChatBot:
         self.retriever = self.vector_db.as_retriever(k=3)
 
         # Initialize the large language model (LLM) from Ollama
-        self.llm = ChatOllama(model="sam4096/qwen2tools:1.5b", base_url="http://ollama:11434")
+        self.llm = ChatOllama(model="llama3.2", base_url="http://ollama:11434")
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()

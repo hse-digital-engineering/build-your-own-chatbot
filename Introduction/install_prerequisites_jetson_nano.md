@@ -2,16 +2,13 @@
 
 > Check if the Orin has the correct date: Execute `date` on a terminal.
 
-1. **Mount SSD & Install Docker**  
-   Follow the instructions in [this guide](https://www.jetson-ai-lab.com/tips_ssd-docker.html).
-
-2. **System Update & Cleanup**  
+1. **System Update & Cleanup**  
    Run the following commands to ensure the system is up to date:
    ```bash
    sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove
    ```
 
-3. **Install Required Tools**
+2. **Install Required Tools**
    - **Git**:
      ```bash
      sudo apt-get install git
@@ -21,10 +18,21 @@
      sudo apt-get install python3 python3-pip
      ```
    - **VSCode**: [Install Visual Studio Code](https://code.visualstudio.com/Download)
+     ```bash
+     wget -N -O vscode-linux-deb.arm64.deb https://update.code.visualstudio.com/latest/linux-deb-arm64/stable
+     sudo apt install ./vscode-linux-deb.arm64.deb
+     ```
    - **Jtop** (for Jetson systems monitoring):
      ```bash
      sudo -H pip3 install -U jetson-stats
+     sudo reboot
      ```
+   - **Docker** (should be already installed, permissions for user is missing)
+   ```bash
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   sudo chmod 666 /var/run/docker.sock
+   ```
 
 4. **Install Rye**  
    Install Rye, a Python toolchain manager:
@@ -41,7 +49,9 @@
 5. **Clone Repository**
    Clone your chatbot project to the SSD:
    ```bash
-   git clone <repo-url> /ssd/build-your-own-chatbot
+   mkdir /home/johbaum8/DEV
+   cd /home/johbaum8/DEV
+   git clone <repo-url>
    ```
 
 6. **VSCode Setup**
@@ -79,6 +89,6 @@
 7. **Set Up Virtual Environment & Dependencies**
    Navigate to the project directory and sync dependencies:
    ```bash
-   cd /ssd/build-your-own-chatbot
+   cd /home/johbaum8/DEV/build-your-own-chatbot
    rye sync
    ```

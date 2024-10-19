@@ -2,9 +2,8 @@
 FROM python:3.11-slim AS build-stage
 
 # Set working directory
-WORKDIR /apps
+WORKDIR /app
 
-# Install system dependencies
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -16,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.lock /app/
 
 # Install Python dependencies in the build stage
-RUN pip install --no-cache-dir -r /app/requirements.lock
+RUN pip install --no-cache-dir -r requirements.lock
 
 # Ensure transformers library is available
 RUN pip install --no-cache-dir transformers
@@ -25,21 +24,22 @@ RUN pip install --no-cache-dir transformers
 RUN mkdir -p /app/src/embedding_model
 
 # Download and cache the Hugging Face model during the build
-RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2', cache_folder='/embedding_model')"
+RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2', cache_folder='/app/src/embedding_model')"
 
 # Copy the application code to the build stage
 COPY . /app
 
 # Stage 2: Final stage (runtime environment)
-FROM python:3.11-alpine
+FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
 
 # Install only runtime dependencies
-RUN apk add --no-cache \
-    sqlite-dev \
-    curl
+RUN apt-get update && apt-get install -y \
+    sqlite3 libsqlite3-dev \
+    curl \
+    && apt-get clean
 
 # Copy the installed Python packages from the build stage to the final image
 COPY --from=build-stage /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
@@ -50,6 +50,9 @@ COPY --from=build-stage /app/src/embedding_model /app/src/embedding_model
 
 # Copy the application code from the build stage
 COPY --from=build-stage /app /app
+
+# Install uvicorn in the final stage
+RUN pip install --no-cache-dir uvicorn
 
 # Set the environment variable for the Hugging Face cache location
 ENV HF_HOME=/app/src/embedding_model

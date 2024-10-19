@@ -8,28 +8,7 @@ For detailed documentation, refer to: [Jetson AI Lab Ollama Tutorial](https://ww
 
 ---
 
-### Deployment Steps Using a Pre-Built Container
-
-1. Pull the Docker image:
-   ```bash
-   docker pull dustynv/ollama:r35.4.1
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r35.4.1
-   ```
-
-3. Execute the model inside the running container:
-   ```bash
-   docker exec -it ollama ollama run llama3.2
-   ```
-
----
-
-### Steps for Building and Deployment from scratch
-
-> Use this when working on jetpack 5. dustynv/ollama:r36.2.0 only works on jetpack 6
+### Deployment Steps for Building and Deployment from scratch
 
 #### 1. Clone the Container Repository
 
@@ -62,18 +41,19 @@ Once the installation is complete, you can run the Ollama container. The contain
 Use the following command to start the container (root directory and terminal outside VS-Code):
 
 ```bash
-jetson-containers run --name ollama $(autotag ollama)
+jetson-containers run --name ollama $(autotag ollama) -Y
 ```
 
 - `jetson-containers run`: This command launches the container using the configurations provided by the `jetson-containers` repository.
 - `--name ollama`: This option names the container "ollama" for easy identification.
 - `$(autotag ollama)`: Automatically tags and pulls the latest Ollama container image compatible with the Jetson Orin Nano.
 
+After running this command  usually the shell in the container is started.
+
 ### Manually Download and Run a LLM in the Ollama Container
 
-To manually download and run a specific LLM model, such as Llama 3.1, inside the Ollama container, use the following command:
+To manually download and run a specific LLM model, such as Llama 3.2, inside the Ollama container, use the following command outside of the container shell:
 
-TODO Hinweis Mario: Es ist unklar, ob man in einem Container ist oder ausserhalb (gibt es in der Command Line dazu Möglichkeiten, dass der Teilnehmer dies sehen kann? Würde zum erstmaligen Verständnis besser sein)
 
 ```bash
 docker exec -it ollama ollama run llama3.2
@@ -82,7 +62,20 @@ docker exec -it ollama ollama run llama3.2
 - `docker exec -it ollama`: Executes commands inside the running Ollama container.
 - `ollama run llama3.2`: Runs the specified model (`llama3.2`) within the container.
 
+If you are already in the container shell, you can run:
+
+
+```bash
+ollama run llama3.2
+```
+
 ---
+
+### Automatically Download and Run a LLM in the Ollama Container
+
+```bash
+jetson-containers run $(autotag ollama) bash -c "/bin/ollama serve & sleep 5; ollama run llama3"
+```
 
 ### Access the Container Shell
 
@@ -138,3 +131,39 @@ ollama [command] [flags]
    ```bash
    ollama pull llama3.2
    ```
+
+---
+
+### Alternative Deployment Steps Using a Pre-Built Container
+
+Pre-built container can be pulled from a public docker hub registry: [dustynv/ollama](https://hub.docker.com/r/dustynv/ollama).
+
+There are different docker images available which are compatible with different jetpack versions:
+
+- "dustynv/ollama:r35.4.1" is compatible with jetpack 5
+- "dustynv/ollama:r36.4.0" is compatible with jetpack 6.
+
+Before pulling a docker image, you need to check the jetpack version on your Jetson Orin Nano.
+
+1. Check the installed jetpack version:
+
+   ```bash
+   sudo apt-cache show nvidia-jetpack
+   ```
+
+2. Pull the right Docker image:
+   ```bash
+   docker pull dustynv/ollama:r36.4.0
+   ```
+
+3. Run the container:
+   ```bash
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r36.4.0
+   ```
+
+4. Execute the model inside the running container:
+   ```bash
+   docker exec -it ollama ollama run llama3.2
+   ```
+
+---
