@@ -1,18 +1,11 @@
 ### Optimizations:
 
-1. **Jetson & JetPack:**
-   - Upgrade **Jetson** to **JetPack 6**.
-
-2. **DevContainer Testing:**
+1. **DevContainer Testing:**
    - Test **DevContainer** interactions:
      - DevContainer + single container interaction.
      - Differentiate dependencies between **Session 1-4** and **Session 5** for containers.
 
-3. **Tasks Improvements:**
-   - Clarify task questions where they are unclear for better understanding.
-
-4. **LLM & Chatbot Enhancements:**
-   - Change **LLM** to resolve function calling issues.
+3. **LLM & Chatbot Enhancements:**
    - **Chatbot Optimization:**
      - Add environment variable support.
      - Implement conversation memory.
@@ -21,7 +14,3 @@
 
 5. **Documentation:**
    - Add a **Docker Cheatsheet** for quick reference.
-
-
- -> Small fixed until 28th October
- -> PP Raw Files
