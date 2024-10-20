@@ -24,8 +24,10 @@ sudo apt-get autoremove
     ```
   - **Install if not**:
     ```bash
-    sudo apt install firefox
+    sudo snap install firefox
     ```
+
+    or use Software Install Center of Ubuntu with graphical interface.
 
 - **Git**:
   - **Check if installed**:
@@ -66,6 +68,7 @@ sudo apt-get autoremove
     ```bash
     wget -N -O vscode-linux-deb.arm64.deb https://update.code.visualstudio.com/latest/linux-deb-arm64/stable
     sudo apt install ./vscode-linux-deb.arm64.deb
+    sudo rm ./vscode-linux-deb.arm64.deb
     ```
 
 - **Jtop** (for Jetson system monitoring):
@@ -95,10 +98,10 @@ sudo apt-get autoremove
 To install Rye and set it up:
 ```bash
 curl -sSf https://rye.astral.sh/get | bash
-echo 'source "$HOME/.rye/env"' >> ~/.bashrc
+source "$HOME/.rye/env"
 ```
 
-Ensure Python 3.11 is managed by Rye. Use `UV` as the dependency manager.
+Ensure Python 3.12 is managed by Rye. Use `UV` as the dependency manager.
 
 ### 5. Clone Project Repository  
 Create a development folder and clone your chatbot project:

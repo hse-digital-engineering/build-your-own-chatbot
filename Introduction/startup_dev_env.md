@@ -26,15 +26,4 @@ After logging in, open the terminal and navigate to the project directory. Then,
 cd /home/johbaum8/DEV/build-your-own-chatbot  # Navigate to the project folder
 code .                                        # Launch VSCode in the project directory
 ```
-
-### 4. Check Docker Installation
-
-To ensure Docker is running and properly installed, use the following command:
-
-```bash
-docker --version
-```
-
-If Docker is installed, this command will return the installed version. If it's not installed, you may need to set it up before continuing.
-
 ---
