@@ -11,6 +11,3 @@
      - Implement conversation memory.
      - Optimize indexing process handling.
      - Replace **Gradio** with **Streamlit** for improved interface.
-
-5. **Documentation:**
-   - Add a **Docker Cheatsheet** for quick reference.
