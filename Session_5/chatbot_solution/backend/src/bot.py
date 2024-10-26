@@ -16,6 +16,7 @@ import re
 from uuid import uuid4
 from typing import List
 import logging
+import os
 
 logger = logging.getLogger("uvicorn")
 logger.setLevel(logging.INFO)
@@ -52,7 +53,7 @@ class CustomChatBot:
         self.retriever = self.vector_db.as_retriever(k=3)
 
         # Initialize the large language model (LLM) from Ollama
-        self.llm = ChatOllama(model="llama3.2", base_url="http://ollama:11434")
+        self.llm = ChatOllama(model=os.environ["MODEL_NAME"], base_url="http://ollama:11434")
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()

@@ -166,3 +166,4 @@ cython_debug/
 
 ollama
 chroma
+embedding_model
