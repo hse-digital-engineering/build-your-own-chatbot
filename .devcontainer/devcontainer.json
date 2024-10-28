@@ -22,9 +22,23 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+<<<<<<< HEAD
                 "ms-python.python",
 				"ms-python.vscode-pylance",
                 "ms-toolsai.jupyter"
+=======
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"esbenp.prettier-vscode",
+				"foxundermoon.shell-format",
+				"ms-azuretools.vscode-docker",
+				"rangav.vscode-thunder-client",
+				"mhutchie.git-graph",
+				"ms-vscode-remote.remote-containers",
+				"ms-python.isort",
+				"ms-toolsai.jupyter",
+				"wayou.vscode-todo-highlight"
+>>>>>>> feature/optimizations
             ]
 		}
 	},

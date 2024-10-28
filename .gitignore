@@ -165,4 +165,9 @@ cython_debug/
 .DS_Store
 
 ollama
+<<<<<<< HEAD
 chroma
+=======
+chroma
+embedding_model
+>>>>>>> feature/optimizations

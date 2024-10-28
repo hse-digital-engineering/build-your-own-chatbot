@@ -55,7 +55,11 @@ services:
     environment:
       - OLLAMA_KEEP_ALIVE=24h
       - OLLAMA_HOST=0.0.0.0
+<<<<<<< HEAD
       - MODEL_NAME=sam4096/qwen2tools:1.5b
+=======
+      - MODEL_NAME=llama3.2
+>>>>>>> feature/optimizations
     networks:
       - app-network
 

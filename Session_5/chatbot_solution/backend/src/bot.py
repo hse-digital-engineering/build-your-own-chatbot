@@ -16,6 +16,10 @@ import re
 from uuid import uuid4
 from typing import List
 import logging
+<<<<<<< HEAD
+=======
+import os
+>>>>>>> feature/optimizations
 
 logger = logging.getLogger("uvicorn")
 logger.setLevel(logging.INFO)
@@ -36,7 +40,11 @@ class CustomChatBot:
         and the ChatOllama language model for answer generation.
         """
         # Initialize the embedding function for document retrieval
+<<<<<<< HEAD
         self.embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+=======
+        self.embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2", cache_folder="/embedding_model")
+>>>>>>> feature/optimizations
         
         # Initialize the ChromaDB client
         self.client = self._initialize_chroma_client()
@@ -52,7 +60,11 @@ class CustomChatBot:
         self.retriever = self.vector_db.as_retriever(k=3)
 
         # Initialize the large language model (LLM) from Ollama
+<<<<<<< HEAD
         self.llm = ChatOllama(model="sam4096/qwen2tools:1.5b", base_url="http://ollama:11434")
+=======
+        self.llm = ChatOllama(model=os.environ["MODEL_NAME"], base_url="http://ollama:11434")
+>>>>>>> feature/optimizations
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()
