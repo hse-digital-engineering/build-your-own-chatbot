@@ -17,6 +17,33 @@ install_if_not_installed() {
     fi
 }
 
+#Checks the given docker demon config if the default runntime is
+#nvidia. If this is not the case it updates the config
+# usage update_docker_demon_config_if_needed "path/to/config.json"
+update_docker_demon_config_if_needed(){
+
+    local FILE="$1"
+    
+    # Check if the file exists
+    if [[ -f "$FILE" ]]; then
+        # Check if the string is already present in the file
+        if grep -q '"default-runtime": "nvidia"' "$FILE"; then
+            echo "The string is already present in $FILE. No changes made."
+        else
+            # Read the entire file into the pattern space and replace the last occurrence of }
+            sed -i ':a;N;$!ba;
+                s/}\s*$/,\
+            "default-runtime": "nvidia"\
+    }/' "$FILE"
+            echo "String appended to $FILE."
+        fi
+    else
+        echo "File $FILE does not exist."
+    fi
+ }
+
+
+
 # Firefox installation
 install_if_not_installed firefox firefox
 
@@ -50,10 +77,26 @@ fi
 if ! command -v docker &> /dev/null; then
     echo "Docker is already installed."
 else
+    echo "Download and configure docker ..."
+    sudo apt install -y nvidia-container curl
+    curl https://get.docker.com | sh && sudo systemctl --now enable docker
+    sudo nvidia-ctk runtime configure --runtime=docker
+
     echo "Setting up Docker permissions for user..."
-    sudo groupadd docker
+    sudo systemctl restart docker
     sudo usermod -aG docker $USER
-    sudo chmod 666 /var/run/docker.sock
+    newgrp docker
+    #sudo groupadd docker
+    #sudo chmod 666 /var/run/docker.sock
+
+    echo "Backup runtime config to /etc/docker/daemon.json.bak  ..."
+    sudo cp /etc/docker/daemon.json /etc/docker/daemon.json.bak
+    
+    echo "Set up default runtime ..."
+    update_docker_demon_config_if_needed "/etc/docker/daemon.json"
+    
+    echo "Restart Docker ..."
+    sudo systemctl daemon-reload && sudo systemctl restart docker
 fi
 
 # Install Rye (Python Toolchain Manager)
