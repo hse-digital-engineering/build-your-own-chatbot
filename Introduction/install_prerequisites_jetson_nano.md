@@ -156,3 +156,10 @@ Navigate to your project directory and synchronize dependencies:
 cd /home/johbaum8/DEV/build-your-own-chatbot
 rye sync
 ```
+
+### Trouble shooting
+
+Fehlermeldung: bad interpreter `/bin/bash^M`:
+```bash
+sed -i -e 's/\r$//' install_prerequisites_jetson_nano.sh
+```
