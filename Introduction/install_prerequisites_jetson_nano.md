@@ -94,6 +94,9 @@ sudo apt-get autoremove
     sudo chmod 666 /var/run/docker.sock
     ```
 
+  - **If not installed:**
+    Follow the instructions in [this guide](https://www.jetson-ai-lab.com/tips_ssd-docker.html).
+
 ### 4. Install Rye (Python Toolchain Manager)
 To install Rye and set it up:
 ```bash
@@ -152,4 +155,11 @@ Navigate to your project directory and synchronize dependencies:
 ```bash
 cd /home/johbaum8/DEV/build-your-own-chatbot
 rye sync
+```
+
+### Trouble shooting
+
+Fehlermeldung: bad interpreter `/bin/bash^M`:
+```bash
+sed -i -e 's/\r$//' install_prerequisites_jetson_nano.sh
 ```
