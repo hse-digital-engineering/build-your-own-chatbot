@@ -1,13 +1,16 @@
 ## Pre-Installation Steps
 
 ### 1. Verify System Date  
+
 Ensure the Orin device has the correct date by running:
 ```bash
 date
 ```
 
 ### 2. System Update & Cleanup  
+
 Update and clean up your system by running:
+
 ```bash
 sudo apt-get update 
 sudo dpkg --configure -a
