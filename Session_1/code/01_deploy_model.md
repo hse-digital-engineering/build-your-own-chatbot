@@ -35,12 +35,12 @@ This script will install required components and configure your system for runni
 Now you can start the Ollama container, optimized for Jetson Orin Nano. To do so, use the following command from the terminal (outside VS Code):
 
 ```bash
-jetson-containers run --name ollama $(autotag ollama) -Y
+jetson-containers run -d --name ollama dustynv/ollama:main-r36.4.0
+
 ```
 
 - `jetson-containers run`: Starts the container using configurations from the cloned repository.
 - `--name ollama`: Names the container "ollama" for easy identification.
-- `$(autotag ollama)`: Automatically tags and pulls the latest Ollama container image optimized for Jetson Orin Nano.
 
 The container's shell should launch after this command.
 
@@ -51,13 +51,13 @@ The container's shell should launch after this command.
 To manually download and run a model like Llama 3.2 inside the Ollama container, use the following command outside the container shell:
 
 ```bash
-docker exec -it ollama ollama run llama3.2
+docker exec -it ollama ollama run llama3.2:1b
 ```
 
 If you are already inside the container shell, you can simply run:
 
 ```bash
-ollama run llama3.2
+ollama run llama3.2:1b
 ```
 
 ---
@@ -67,7 +67,7 @@ ollama run llama3.2
 You can also automatically download and run the LLM model using this command:
 
 ```bash
-jetson-containers run $(autotag ollama) bash -c "/bin/ollama serve & sleep 5; ollama run llama3"
+jetson-containers run dustynv/ollama:main-r36.4.0 bash -c "/bin/ollama serve & sleep 5; ollama run llama3.2:1b"
 ```
 
 ---
@@ -112,7 +112,7 @@ ollama [command] [flags]
 
 1. **Run a Model**:
    ```bash
-   ollama run llama3.2
+   ollama run llama3.2:1b
    ```
 
 2. **List Available Models**:
@@ -122,7 +122,7 @@ ollama [command] [flags]
 
 3. **Pull a Model from a Registry**:
    ```bash
-   ollama pull llama3.2
+   ollama pull llama3.2:1b
    ```
 
 ---
@@ -134,7 +134,7 @@ Alternatively, you can pull a pre-built Ollama container from Docker Hub: [dusty
 Pre-built images are available for different Jetpack versions:
 
 - **Jetpack 5**: `dustynv/ollama:r35.4.1`
-- **Jetpack 6**: `dustynv/ollama:r36.4.0`
+- **Jetpack 6**: `dustynv/ollama:main-r36.4.0`
 
 #### Steps:
 
@@ -147,19 +147,19 @@ Pre-built images are available for different Jetpack versions:
 2. **Pull the appropriate Docker image** based on your Jetpack version:
 
    ```bash
-   docker pull dustynv/ollama:r36.4.0
+   docker pull dustynv/ollama:main-r36.4.0
    ```
 
 3. **Run the container**:
 
    ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:r36.4.0
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0
    ```
 
 4. **Execute the model inside the running container**:
 
    ```bash
-   docker exec -it ollama ollama run llama3.2
+   docker exec -it ollama ollama run llama3.2:1b
    ```
 
 ---
