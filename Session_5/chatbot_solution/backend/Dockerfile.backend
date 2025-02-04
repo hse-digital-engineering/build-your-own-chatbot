@@ -18,13 +18,13 @@ COPY requirements.lock /app/
 RUN pip install --no-cache-dir -r requirements.lock
 
 # Ensure transformers library is available
-RUN pip install --no-cache-dir transformers
+#RUN pip install --no-cache-dir transformers
 
 # Create the embedding model directory
-RUN mkdir -p /app/src/embedding_model
+#RUN mkdir -p /app/src/embedding_model
 
 # Download and cache the Hugging Face model during the build
-RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2', cache_folder='/app/src/embedding_model')"
+#RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2', cache_folder='/app/src/embedding_model')"
 
 # Copy the application code to the build stage
 COPY . /app
@@ -46,7 +46,7 @@ COPY --from=build-stage /usr/local/lib/python3.11/site-packages /usr/local/lib/p
 COPY --from=build-stage /usr/local/bin /usr/local/bin
 
 # Copy the Hugging Face model from the build stage
-COPY --from=build-stage /app/src/embedding_model /app/src/embedding_model
+#COPY --from=build-stage /app/src/embedding_model /app/src/embedding_model
 
 # Copy the application code from the build stage
 COPY --from=build-stage /app /app
@@ -55,7 +55,7 @@ COPY --from=build-stage /app /app
 RUN pip install --no-cache-dir uvicorn
 
 # Set the environment variable for the Hugging Face cache location
-ENV HF_HOME=/app/src/embedding_model
+#ENV HF_HOME=/app/src/embedding_model
 
 # Expose the FastAPI default port
 EXPOSE 5001

@@ -6,12 +6,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableSerializable
 from langchain_core.load.serializable import Serializable
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from chromadb.api import ClientAPI
-from langchain_ollama import ChatOllama
+from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+import requests
 import re
 from uuid import uuid4
 from typing import List
@@ -36,9 +36,12 @@ class CustomChatBot:
         Initialize the CustomChatBot class by setting up the ChromaDB client for document retrieval
         and the ChatOllama language model for answer generation.
         """
+
         # Initialize the embedding function for document retrieval
-        self.embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2", cache_folder="/embedding_model")
-        
+        # x = requests.post("http://ollama:11434/api/pull", json = {"name": os.environ["EMBEDDING_MODEL"],  "stream": False})
+        # print(x.json())
+        self.embedding_function = OllamaEmbeddings(model=os.environ["EMBEDDING_MODEL"], base_url="http://ollama:11434")
+
         # Initialize the ChromaDB client
         self.client = self._initialize_chroma_client()
         

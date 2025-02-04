@@ -5,6 +5,7 @@ import logging
 from contextlib import asynccontextmanager
 import traceback
 import os
+import requests
 from src.bot import CustomChatBot
 
 INDEX_DATA = bool(int(os.environ["INDEX_DATA"]))
@@ -19,6 +20,7 @@ async def lifespan(app: FastAPI):
     FastAPI lifespan manager to ensure CustomChatBot is initialized and cleaned up correctly.
     """
     logger.info("Creating instance of custom chatbot.")
+    pull_embedding_response = requests.post("http://ollama:11434/api/pull", json = {"name": os.environ["EMBEDDING_MODEL"],  "stream": False})
     logger.info(f"Index data to vector store: {INDEX_DATA}")
     app.state.chatbot = CustomChatBot(index_data=INDEX_DATA)
     try:
