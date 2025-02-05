@@ -34,15 +34,22 @@ This script will install required components and configure your system for runni
 
 Now you can start the Ollama container, optimized for Jetson Orin Nano. To do so, use the following command from the terminal (outside VS Code):
 
+**EDIT: there are currently issues with ollama because ollama service is not starting in container when container spins up (see issue: [#814](https://github.com/dusty-nv/jetson-containers/issues/814)).**
+
 ```bash
 jetson-containers run -d --name ollama dustynv/ollama:main-r36.4.0
 
 ```
 
+**WORKAROUND: this command takes care of starting the ollama service after spinning up the container.**
+
+```bash
+jetson-containers run -d --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve"
+
+```
+
 - `jetson-containers run`: Starts the container using configurations from the cloned repository.
 - `--name ollama`: Names the container "ollama" for easy identification.
-
-The container's shell should launch after this command.
 
 ---
 
@@ -64,10 +71,10 @@ ollama run llama3.2:1b
 
 ### Automatically Download and Run a LLM in the Ollama Container
 
-You can also automatically download and run the LLM model using this command:
+You can also automatically spin up the container, download and run the LLM model using this command:
 
 ```bash
-jetson-containers run dustynv/ollama:main-r36.4.0 bash -c "/bin/ollama serve & sleep 5; ollama run llama3.2:1b"
+jetson-containers run -d dustynv/ollama:main-r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
 ```
 
 ---
@@ -152,9 +159,24 @@ Pre-built images are available for different Jetpack versions:
 
 3. **Run the container**:
 
-   ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0
-   ```
+   **EDIT: there are currently issues with ollama because ollama service is not starting in container when container spins up (see issue: [#814](https://github.com/dusty-nv/jetson-containers/issues/814)).**
+
+      ```bash
+      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0
+      ```
+
+   **WORKAROUND:**
+
+      ```bash
+      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve"
+      ```
+
+   **OR (starting also a model):**
+
+      ```bash
+      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
+      ```
+
 
 4. **Execute the model inside the running container**:
 
