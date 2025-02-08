@@ -25,8 +25,15 @@ CHROMA_HOST_NAME = os.environ.get("CHROMA_HOST_NAME", "localhost")
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "bge-m3")
 MODEL_NAME = os.environ.get("MODEL_NAME", "llama3.2:1B")
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,  # Change to DEBUG for more details
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),  # Console logs
+    ],
+)
+
+logger = logging.getLogger(__name__)
 
 class CustomChatBot:
     """
