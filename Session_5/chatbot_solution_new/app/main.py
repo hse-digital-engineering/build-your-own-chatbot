@@ -19,6 +19,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+
 # Initialize chatbot instance (avoid reloading)
 if "bot" not in st.session_state:
     st.session_state["bot"] = CustomChatBot(index_data=bool(INDEX_DATA), pull_embedding_model=bool(PULL_EMBEDDING_MODEL))
@@ -62,6 +63,7 @@ if user_query := st.chat_input(placeholder="Ask me anything!"):
             st.session_state.messages.append(ChatMessage(role="assistant", content=answer))
 
     with st.chat_message("assistant"):
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(handle_user_query(user_query))
+        with st.spinner("Searching for information in your documents and generation response..."):
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(handle_user_query(user_query))
