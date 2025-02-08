@@ -1,109 +1,57 @@
-import os
-from src.utils import sync_st_session, configure_llm, configure_embedding_model, display_msg, print_qa, enable_chat_history
 import streamlit as st
-from src.streaming import StreamHandler
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationalRetrievalChain
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.vectorstores import DocArrayInMemorySearch
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+import asyncio
+import logging
+from langchain.schema import ChatMessage
+from src.chatbot import CustomChatBot
+import os
 
+INDEX_DATA = os.environ.get("INDEX_DATA", 0)
+PULL_EMBEDDING_MODEL = os.environ.get("PULL_EMBEDDING_MODEL", 0)
+# Configure logger
+logger = logging.getLogger(__name__)
 
-st.set_page_config(page_title="YourOwnRAGChatbot", page_icon="📄")
-st.header('Chat With Your Own Documents')
-st.write('Has access to custom documents and can respond to user queries by referring to the content within those documents')
+# Initialize chatbot instance (avoid reloading)
+if "bot" not in st.session_state:
+    st.session_state["bot"] = CustomChatBot(index_data=bool(INDEX_DATA), pull_embedding_model=bool(PULL_EMBEDDING_MODEL))
 
-class CustomDocChatbot:
+# Streamlit UI setup
+st.set_page_config(page_title="ChatPDF", page_icon="📄")
+st.header("Chat with your documents (Basic RAG)")
+st.write("Has access to custom documents and can respond to user queries by referring to the content within those documents.")
 
-    def __init__(self):
-        sync_st_session()
-        self.llm = configure_llm()
-        self.embedding_model = configure_embedding_model()
+# Initialize chat history in session state
+if "messages" not in st.session_state:
+    st.session_state["messages"] = [ChatMessage(role="assistant", content="How can I help you?")]
 
-    def save_file(self, file):
-        folder = 'tmp'
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-        
-        file_path = f'./{folder}/{file.name}'
-        with open(file_path, 'wb') as f:
-            f.write(file.getvalue())
-        return file_path
+# Display chat messages
+for msg in st.session_state.messages:
+    st.chat_message(msg.role).write(msg.content)
 
-    @st.spinner('Analyzing documents..')
-    def setup_qa_chain(self, uploaded_files):
-        # Load documents
-        docs = []
-        for file in uploaded_files:
-            file_path = self.save_file(file)
-            loader = PyPDFLoader(file_path)
-            docs.extend(loader.load())
-        
-        # Split documents and store in vector db
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200
-        )
-        splits = text_splitter.split_documents(docs)
-        vectordb = DocArrayInMemorySearch.from_documents(splits, self.embedding_model)
+# Handle user input
+if user_query := st.chat_input(placeholder="Ask me anything!"):
+    st.session_state.messages.append(ChatMessage(role="user", content=user_query))
+    st.chat_message("user").write(user_query)
 
-        # Define retriever
-        retriever = vectordb.as_retriever(
-            search_type='mmr',
-            search_kwargs={'k':2, 'fetch_k':4}
-        )
+    async def handle_user_query(user_query):
+        container = st.empty()
+        answer = ""
 
-        # Setup memory for contextual conversation        
-        memory = ConversationBufferMemory(
-            memory_key='chat_history',
-            output_key='answer',
-            return_messages=True
-        )
+        try:
+            async for event in st.session_state["bot"].qa_rag_chain.astream_events(user_query, version="v2"):
+                if event.get("event") == "on_chat_model_stream":
+                    chunk = event['data']['chunk'].content
+                    if chunk:
+                        answer += chunk
+                        container.markdown(answer)  # Updates incrementally
+        except Exception as e:
+            logger.error(f"Error processing query: {e}")
+            container.error("An error occurred while processing your request.")
 
-        # Setup LLM and QA chain
-        qa_chain = ConversationalRetrievalChain.from_llm(
-            llm=self.llm,
-            retriever=retriever,
-            memory=memory,
-            return_source_documents=True,
-            verbose=False
-        )
-        return qa_chain
+        # Store assistant response in session state
+        if answer:
+            st.session_state.messages.append(ChatMessage(role="assistant", content=answer))
 
-    @enable_chat_history
-    def main(self):
-
-        # User Inputs
-        uploaded_files = st.sidebar.file_uploader(label='Upload PDF files', type=['pdf'], accept_multiple_files=True)
-        if not uploaded_files:
-            st.error("Please upload PDF documents to continue!")
-            st.stop()
-
-        user_query = st.chat_input(placeholder="Ask me anything!")
-
-        if uploaded_files and user_query:
-            qa_chain = self.setup_qa_chain(uploaded_files)
-
-            display_msg(user_query, 'user')
-
-            with st.chat_message("assistant"):
-                st_cb = StreamHandler(st.empty())
-                result = qa_chain.invoke(
-                    {"question":user_query},
-                    {"callbacks": [st_cb]}
-                )
-                response = result["answer"]
-                st.session_state.messages.append({"role": "assistant", "content": response})
-                print_qa(CustomDocChatbot, user_query, response)
-
-                # to show references
-                for idx, doc in enumerate(result['source_documents'],1):
-                    filename = os.path.basename(doc.metadata['source'])
-                    page_num = doc.metadata['page']
-                    ref_title = f":blue[Reference {idx}: *{filename} - page.{page_num}*]"
-                    with st.popover(ref_title):
-                        st.caption(doc.page_content)
-
-if __name__ == "__main__":
-    obj = CustomDocChatbot()
-    obj.main()
+    with st.chat_message("assistant"):
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(handle_user_query(user_query))

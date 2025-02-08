@@ -20,6 +20,8 @@ from typing import List
 import logging
 import os
 
+OLLAMA_HOST_NAME = os.environ.get("OLLAMA_HOST_NAME", "localhost")
+CHROMA_HOST_NAME = os.environ.get("CHROMA_HOST_NAME", "localhost")
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "bge-m3")
 MODEL_NAME = os.environ.get("MODEL_NAME", "llama3.2:1B")
 
@@ -36,16 +38,16 @@ class CustomChatBot:
     concise answers using a language model (ChatOllama).
     """
 
-    def __init__(self, index_data: bool) -> None:
+    def __init__(self, index_data: bool, pull_embedding_model: bool) -> None:
         """
         Initialize the CustomChatBot class by setting up the ChromaDB client for document retrieval
         and the ChatOllama language model for answer generation.
         """
 
         # Initialize the embedding function for document retrieval
-        # x = requests.post("http://ollama:11434/api/pull", json = {"name": os.environ["EMBEDDING_MODEL"],  "stream": False})
-        # print(x.json())
-        self.embedding_function = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url="http://localhost:11434")
+        if pull_embedding_model:
+            self._pull_embedding_model()
+        self.embedding_function = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=f"http://{OLLAMA_HOST_NAME}:11434")
 
         # Initialize the ChromaDB client
         self.client = self._initialize_chroma_client()
@@ -61,10 +63,20 @@ class CustomChatBot:
         self.retriever = self.vector_db.as_retriever(k=3)
 
         # Initialize the large language model (LLM) from Ollama
-        self.llm = ChatOllama(model=MODEL_NAME, base_url="http://localhost:11434")
+        self.llm = ChatOllama(model=MODEL_NAME, base_url=f"http://{OLLAMA_HOST_NAME}:11434")
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()
+
+    def _pull_embedding_model(self):
+        logger.info(f"Pull embedding model {EMBEDDING_MODEL}")
+        try:
+
+            response = requests.post(f"http://{OLLAMA_HOST_NAME}:11434/api/pull", json = {"name": EMBEDDING_MODEL,  "stream": False})
+            response.raise_for_status()
+            logger.info(response.json())
+        except:
+            raise
 
     def _initialize_chroma_client(self) -> ClientAPI:
         """
@@ -75,7 +87,7 @@ class CustomChatBot:
         """ 
         logger.info("Initialize chroma db client.")
         return chromadb.HttpClient(
-            host="localhost",
+            host=CHROMA_HOST_NAME,
             port=8000,
             ssl=False,
             settings=Settings(allow_reset=True, anonymized_telemetry=False),
@@ -119,7 +131,7 @@ class CustomChatBot:
 
         uuids = [str(uuid4()) for _ in range(len(pages_chunked_cleaned[10:50]))]
 
-        self.vector_db.add_documents(documents=pages_chunked[:50], ids=uuids)
+        self.vector_db.add_documents(documents=pages_chunked[10:50], ids=uuids)
 
     def _initialize_qa_rag_chain(self) -> RunnableSerializable[Serializable, str]:
         """
