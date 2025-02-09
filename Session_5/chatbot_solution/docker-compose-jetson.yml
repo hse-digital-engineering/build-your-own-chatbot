@@ -27,7 +27,7 @@ services:
       - ./app:/app
 
   chroma:
-    image: chromadb/chroma:0.6.4.dev74
+    image: chromadb/chroma:0.5.13
     volumes:
       - ./chroma:/chroma/.chroma/index
     ports:
