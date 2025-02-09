@@ -24,6 +24,7 @@ OLLAMA_HOST_NAME = os.environ.get("OLLAMA_HOST_NAME", "localhost")
 CHROMA_HOST_NAME = os.environ.get("CHROMA_HOST_NAME", "localhost")
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "bge-m3")
 MODEL_NAME = os.environ.get("MODEL_NAME", "llama3.2:1B")
+PDF_DOC_PATH = os.environ.get("PDF_DOC_PATH", "src/AI_Book.pdf")
 
 logging.basicConfig(
     level=logging.INFO,  # Change to DEBUG for more details
@@ -118,7 +119,7 @@ class CustomChatBot:
     
     def _index_data_to_vector_db(self):
 
-        pdf_doc = "src/AI_Book.pdf"
+        pdf_doc = PDF_DOC_PATH
 
         # Create pdf data loaders
         loader = PyPDFLoader(pdf_doc)
@@ -134,11 +135,14 @@ class CustomChatBot:
             text = re.sub(r'[^\x00-\x7F]+', '', text)
             return text
 
-        pages_chunked_cleaned = [clean_text(chunk.page_content) for chunk in pages_chunked]
+        pages_chunked_cleaned = [
+            Document(page_content=clean_text(doc.page_content), metadata=doc.metadata)
+            for doc in pages_chunked
+        ]
 
-        uuids = [str(uuid4()) for _ in range(len(pages_chunked_cleaned[10:50]))]
+        uuids = [str(uuid4()) for _ in range(len(pages_chunked_cleaned[0:100]))]
 
-        self.vector_db.add_documents(documents=pages_chunked[10:50], ids=uuids)
+        self.vector_db.add_documents(documents=pages_chunked_cleaned[0:100], ids=uuids)
 
     def _initialize_qa_rag_chain(self) -> RunnableSerializable[Serializable, str]:
         """
