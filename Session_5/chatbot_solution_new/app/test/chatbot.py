@@ -3,10 +3,9 @@
 import chromadb
 from chromadb.config import DEFAULT_TENANT, DEFAULT_DATABASE, Settings
 from langchain.memory import ConversationBufferMemory
-from langchain_core.documents.base import Document
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough, RunnableSerializable
+from langchain.chains import ConversationalRetrievalChain
+from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from langchain_core.runnables import RunnableSerializable
 from langchain_core.load.serializable import Serializable
 from langchain_chroma import Chroma
 from chromadb.api import ClientAPI
@@ -16,7 +15,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import requests
 import re
 from uuid import uuid4
-from typing import List
 import logging
 import os
 
@@ -71,6 +69,10 @@ class CustomChatBot:
 
         # Initialize the large language model (LLM) from Ollama
         self.llm = ChatOllama(model=MODEL_NAME, base_url=f"http://{OLLAMA_HOST_NAME}:11434")
+
+        # Initialize Memory
+        self.msgs = StreamlitChatMessageHistory()
+        self.memory = ConversationBufferMemory(memory_key="chat_history", chat_memory=self.msgs, return_messages=True)
 
         # Set up the retrieval-augmented generation (RAG) pipeline
         self.qa_rag_chain = self._initialize_qa_rag_chain()
@@ -141,49 +143,11 @@ class CustomChatBot:
         self.vector_db.add_documents(documents=pages_chunked[10:50], ids=uuids)
 
     def _initialize_qa_rag_chain(self) -> RunnableSerializable[Serializable, str]:
-        """
-        Set up the retrieval-augmented generation (RAG) pipeline for answering questions.
-        
-        The pipeline consists of:
-        - Retrieving relevant documents from ChromaDB.
-        - Formatting the retrieved documents for input into the language model (LLM).
-        - Using the LLM to generate concise answers.
-        
-        Returns:
-            dict: The RAG pipeline configuration.
-        """
-        logger.info("Initialize rag chain.")
-        prompt_template = """
-        You are an helpful assistant for question-answering tasks.
-        Use the following pieces of retrieved context to answer the question. 
-        If you don't know the answer or no context is available, just say that you don't know. 
-        Use three sentences maximum and keep the answer concise.
 
-        <context>
-        {context}
-        </context>
-
-        Answer the following question:
-
-        {question}"""
-
-        # Define the prompt template for generating answers
-        rag_prompt = ChatPromptTemplate.from_template(prompt_template)
-
-        # Build the RAG pipeline using the retriever and LLM
-        return ({"context": self.retriever | self._format_docs, "question": RunnablePassthrough()} | rag_prompt | self.llm | StrOutputParser())
-
-    def _format_docs(self, docs: List[Document]) -> str:
-        """
-        Helper function to format the retrieved documents into a single string.
-        
-        Args:
-            docs (List[Document]): A list of documents retrieved by ChromaDB.
-
-        Returns:
-            str: A string containing the concatenated content of all retrieved documents.
-        """
-        return "\n\n".join(doc.page_content for doc in docs)
+        qa_chain = ConversationalRetrievalChain.from_llm(
+            self.llm, retriever=self.retriever, memory=self.memory, verbose=True
+        )
+        return qa_chain
         
     async def astream(self, question: str):
         """
@@ -197,11 +161,9 @@ class CustomChatBot:
         """
         logger.info("Streaming RAG chain response.")
         try:
-            async for event in self.qa_rag_chain.astream_events(question, version="v2"):
-                if event.get("event") == "on_chat_model_stream":
-                    chunk = event['data']['chunk'].content
-                    logger.debug(f"Yielding chunk: {chunk}")
-                    yield chunk
+            async for chunk in self.qa_rag_chain.astream(question):
+                logger.debug(f"Yielding chunk: {chunk}")
+                yield chunk
         except Exception as e:
             logger.error(f"Error in stream_answer: {e}", exc_info=True)
             raise
