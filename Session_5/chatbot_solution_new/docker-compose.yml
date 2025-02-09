@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
+      - "5678:5678"
     container_name: chatbot
     environment:
       - INDEX_DATA=0

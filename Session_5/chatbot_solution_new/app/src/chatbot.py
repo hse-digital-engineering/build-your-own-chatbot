@@ -2,7 +2,6 @@
 
 import chromadb
 from chromadb.config import DEFAULT_TENANT, DEFAULT_DATABASE, Settings
-from langchain.memory import ConversationBufferMemory
 from langchain_core.documents.base import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -54,6 +53,7 @@ class CustomChatBot:
 
         # Initialize the embedding function for document retrieval
         if pull_embedding_model:
+            logger.info(f"Pulling embedding model{EMBEDDING_MODEL} now.")
             self._pull_embedding_model()
         self.embedding_function = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=f"http://{OLLAMA_HOST_NAME}:11434")
 
@@ -65,6 +65,7 @@ class CustomChatBot:
 
         # Process pdf, embedd data and index to ChromaDB
         if index_data:
+            logger.info(f"Index data to chroma db now.")
             self._index_data_to_vector_db()
 
         # Initialize the document retriever

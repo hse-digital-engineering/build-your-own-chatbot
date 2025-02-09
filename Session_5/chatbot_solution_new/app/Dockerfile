@@ -1,5 +1,5 @@
 # Use Python 3.11 slim as base
-FROM python:3.11-slim
+FROM python:3.11.10
 
 # Set working directory
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.lock
 COPY . /app
 
 # Expose the application port
-EXPOSE 5001
+EXPOSE 5001 5678
 
-# Run Streamlit with live reload enabled
-CMD ["streamlit", "run", "main.py", "--server.port=5001", "--server.address=0.0.0.0", "--server.runOnSave=true"]
+# Run python debug server and streamlit with live reload enabled
+CMD ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "-m", "streamlit", "run", "main.py", "--server.port=5001", "--server.address=0.0.0.0"]

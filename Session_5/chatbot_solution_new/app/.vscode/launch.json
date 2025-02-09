@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python:Streamlit",
+            "name": "LocalPython:Streamlit",
             "type": "debugpy",
             "request": "launch",
             "module": "streamlit",
@@ -11,6 +11,19 @@
                 "${file}",
                 "--server.port",
                 "2000"
+            ]
+        },
+        {
+            "name": "DockerPython:Streamlit",
+            "type": "debugpy",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/app"
+                }
             ]
         }
     ]

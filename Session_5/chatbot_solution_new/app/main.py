@@ -5,8 +5,8 @@ from langchain.schema import ChatMessage
 from src.chatbot import CustomChatBot
 import os
 
-INDEX_DATA = os.environ.get("INDEX_DATA", 0)
-PULL_EMBEDDING_MODEL = os.environ.get("PULL_EMBEDDING_MODEL", 0)
+INDEX_DATA = os.environ.get("INDEX_DATA", "0")
+PULL_EMBEDDING_MODEL = os.environ.get("PULL_EMBEDDING_MODEL", "0")
 
 # Configure logger
 logging.basicConfig(
@@ -20,9 +20,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Initialize chatbot instance (avoid reloading)
-chatbot = CustomChatBot(index_data=bool(INDEX_DATA), pull_embedding_model=bool(PULL_EMBEDDING_MODEL))
 if "bot" not in st.session_state:
-    st.session_state["bot"] =chatbot
+    st.session_state["bot"] = CustomChatBot(index_data=bool(int(INDEX_DATA)), pull_embedding_model=bool(int(PULL_EMBEDDING_MODEL)))
 
 # Streamlit UI setup
 st.set_page_config(page_title="ChatDoc", page_icon="📄")
