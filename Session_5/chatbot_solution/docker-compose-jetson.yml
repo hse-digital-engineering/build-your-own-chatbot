@@ -1,38 +1,33 @@
 version: '3'
 
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.frontend
-    ports:
-      - "7860:7860"
-    container_name: frontend
-    depends_on:
-      - backend
-    networks:
-      - app-network
 
-  backend:
+  chatbot:
     build:
-      context: ./backend
-      dockerfile: Dockerfile.backend
+      context: ./app
+      dockerfile: Dockerfile
     ports:
       - "5001:5001"
-    container_name: backend
+      - "5678:5678"
+    container_name: chatbot
     environment:
       - INDEX_DATA=0
-      - MODEL_NAME=llama3.2
+      - MODEL_NAME=llama3.2:1B
+      - EMBEDDING_MODEL=bge-m3
+      - PULL_EMBEDDING_MODEL=0
+      - OLLAMA_HOST_NAME=ollama
+      - CHROMA_HOST_NAME=chroma
+      - PDF_DOC_PATH=/app/src/AI_Book.pdf
     depends_on:
       - chroma
       - ollama
     networks:
       - app-network
     volumes:
-      - ./backend:/app 
+      - ./app:/app
 
   chroma:
-    image: chromadb/chroma
+    image: chromadb/chroma:0.6.4.dev74
     volumes:
       - ./chroma:/chroma/.chroma/index
     ports:
@@ -42,7 +37,7 @@ services:
       - app-network
 
   ollama:
-    image: dustynv/ollama:r36.4.0
+    image: dustynv/ollama:main-r36.4.0
     ports:
       - 11434:11434
     volumes:
@@ -50,7 +45,7 @@ services:
     container_name: ollama
     tty: true
     entrypoint: ["/bin/bash", "-c"]
-    command: ["( /bin/ollama serve & sleep 5; /bin/ollama run llama3.2 )"]
+    command: ["( ollama serve & sleep 5; ollama run llama3.2:1B )"]
     environment:
       - OLLAMA_KEEP_ALIVE=24h
       - OLLAMA_HOST=0.0.0.0
