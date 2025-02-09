@@ -1,13 +1,18 @@
 ### Optimizations:
 
-1. **DevContainer Testing:**
-   - Test **DevContainer** interactions:
-     - DevContainer + single container interaction.
-     - Differentiate dependencies between **Session 1-4** and **Session 5** for containers.
+**Session 1-4:**
 
-3. **LLM & Chatbot Enhancements:**
-   - **Chatbot Optimization:**
-     - Add environment variable support.
-     - Implement conversation memory.
-     - Optimize indexing process handling.
-     - Replace **Gradio** with **Streamlit** for improved interface.
+  - Update slides and documentation
+  - Test solutions and compare to tasks
+  - Check cached models -> volumes?
+
+**LLM & Chatbot Enhancements:**
+  - Model pull process optimization
+  - Optimize embedding routine - Optimize indexing process handling.
+  - Implement conversation memory.
+  - Optimize rag chain
+
+
+Optional: 
+
+  - Update langchain version

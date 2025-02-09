@@ -22,30 +22,22 @@ services:
     container_name: backend
     environment:
       - INDEX_DATA=0
-      - MODEL_NAME=llama3.2:1B
-      - EMBEDDING_MODEL=bge-m3
+      - MODEL_NAME=llama3.2
     depends_on:
-      chroma:
-        condition: service_healthy
-      #ollama
+      - chroma
+      - ollama
     networks:
       - app-network
     volumes:
       - ./backend:/app 
 
   chroma:
-    image: chromadb/chroma:0.5.13
+    image: chromadb/chroma
     volumes:
       - ./chroma:/chroma/.chroma/index
     ports:
       - "8000:8000"
     container_name: chroma
-    healthcheck: 
-        test: curl localhost:8000/api/v1/heartbeat || exit 1
-        interval: 10s
-        retries: 2
-        start_period: 5s
-        timeout: 10s
     networks:
       - app-network
 
@@ -58,7 +50,7 @@ services:
     container_name: ollama
     tty: true
     entrypoint: ["/bin/bash", "-c"]
-    command: ["( /bin/ollama serve & sleep 5; /bin/ollama run llama3.2:1B )"]
+    command: ["( /bin/ollama serve & sleep 5; /bin/ollama run llama3.2 )"]
     environment:
       - OLLAMA_KEEP_ALIVE=24h
       - OLLAMA_HOST=0.0.0.0
