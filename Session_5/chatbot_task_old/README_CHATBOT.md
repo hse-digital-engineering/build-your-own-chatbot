@@ -15,9 +15,10 @@ You can start the chatbot application by following the steps below based on your
 
 #### On Jetson Nano:
 
-To run the chatbot on a Jetson Nano, use the following command:
+To run the chatbot on a Jetson Nano, use the following commands:
 
 ```bash
+cd /Session_5/chatbot_task/
 docker compose -f docker-compose-jetson.yml up --build
 ```
 
