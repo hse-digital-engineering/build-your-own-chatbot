@@ -19,8 +19,8 @@ services:
       - CHROMA_HOST_NAME=chroma
       - PDF_DOC_PATH=/app/src/AI_Book.pdf
     depends_on:
-      - chroma
-      - ollama
+      chroma:
+        condition: service_healthy
     networks:
       - app-network
     volumes:
@@ -33,11 +33,17 @@ services:
     ports:
       - "8000:8000"
     container_name: chroma
+    healthcheck: 
+        test: curl localhost:8000/api/v1/heartbeat || exit 1
+        interval: 10s
+        retries: 2
+        start_period: 5s
+        timeout: 10s
     networks:
       - app-network
 
   ollama:
-    image: dustynv/ollama:main-r36.4.0
+    image: makoit13/ollama:r36.4.0
     ports:
       - 11434:11434
     volumes:

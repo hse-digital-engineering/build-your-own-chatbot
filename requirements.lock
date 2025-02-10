@@ -9,8 +9,6 @@
 #   generate-hashes: false
 #   universal: true
 
-aiofiles==23.2.1
-    # via gradio
 aiohappyeyeballs==2.4.0
     # via aiohttp
 aiohttp==3.10.5
@@ -18,10 +16,11 @@ aiohttp==3.10.5
     # via langchain-community
 aiosignal==1.3.1
     # via aiohttp
+altair==5.5.0
+    # via streamlit
 annotated-types==0.7.0
     # via pydantic
 anyio==4.4.0
-    # via gradio
     # via httpx
     # via jupyter-server
     # via openai
@@ -55,10 +54,13 @@ beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.1.0
     # via nbconvert
+blinker==1.9.0
+    # via streamlit
 build==1.2.1
     # via chromadb
 cachetools==5.5.0
     # via google-auth
+    # via streamlit
 certifi==2024.8.30
     # via httpcore
     # via httpx
@@ -74,6 +76,7 @@ chroma-hnswlib==0.7.3
 chromadb==0.5.3
     # via langchain-chroma
 click==8.1.7
+    # via streamlit
     # via typer
     # via uvicorn
 colorama==0.4.6 ; (platform_system != 'Windows' and sys_platform == 'win32') or platform_system == 'Windows' or os_name == 'nt'
@@ -87,13 +90,9 @@ coloredlogs==15.0.1
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
-contourpy==1.3.0
-    # via matplotlib
-cycler==0.12.1
-    # via matplotlib
 dataclasses-json==0.6.7
     # via langchain-community
-debugpy==1.8.5
+debugpy==1.8.12
     # via ipykernel
 decorator==5.1.1
     # via ipython
@@ -109,33 +108,28 @@ executing==2.1.0
     # via stack-data
 fastapi==0.114.0
     # via chromadb
-    # via gradio
     # via langchain-chroma
 fastjsonschema==2.20.0
     # via nbformat
-ffmpy==0.4.0
-    # via gradio
 filelock==3.15.4
     # via huggingface-hub
 flatbuffers==24.3.25
     # via onnxruntime
-fonttools==4.53.1
-    # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 frozenlist==1.4.1
     # via aiohttp
     # via aiosignal
 fsspec==2024.6.1
-    # via gradio-client
     # via huggingface-hub
+gitdb==4.0.12
+    # via gitpython
+gitpython==3.1.44
+    # via streamlit
 google-auth==2.34.0
     # via kubernetes
 googleapis-common-protos==1.65.0
     # via opentelemetry-exporter-otlp-proto-grpc
-gradio==4.44.0
-gradio-client==1.3.0
-    # via gradio
 greenlet==3.0.3 ; (python_full_version < '3.13' and platform_machine == 'AMD64') or (python_full_version < '3.13' and platform_machine == 'WIN32') or (python_full_version < '3.13' and platform_machine == 'aarch64') or (python_full_version < '3.13' and platform_machine == 'amd64') or (python_full_version < '3.13' and platform_machine == 'ppc64le') or (python_full_version < '3.13' and platform_machine == 'win32') or (python_full_version < '3.13' and platform_machine == 'x86_64')
     # via sqlalchemy
 grpcio==1.66.1
@@ -150,15 +144,11 @@ httptools==0.6.1
     # via uvicorn
 httpx==0.27.2
     # via chromadb
-    # via gradio
-    # via gradio-client
     # via jupyterlab
     # via langsmith
     # via ollama
     # via openai
 huggingface-hub==0.24.6
-    # via gradio
-    # via gradio-client
     # via tokenizers
 humanfriendly==10.0
     # via coloredlogs
@@ -172,7 +162,6 @@ importlib-metadata==8.4.0
     # via opentelemetry-api
 importlib-resources==6.4.4
     # via chromadb
-    # via gradio
 ipykernel==6.29.5
     # via jupyter
     # via jupyter-console
@@ -188,11 +177,12 @@ isoduration==20.11.0
 jedi==0.19.1
     # via ipython
 jinja2==3.1.4
-    # via gradio
+    # via altair
     # via jupyter-server
     # via jupyterlab
     # via jupyterlab-server
     # via nbconvert
+    # via pydeck
 jiter==0.5.0
     # via openai
 json5==0.9.25
@@ -203,6 +193,7 @@ jsonpointer==3.0.0
     # via jsonpatch
     # via jsonschema
 jsonschema==4.23.0
+    # via altair
     # via jupyter-events
     # via jupyterlab-server
     # via nbformat
@@ -247,8 +238,6 @@ jupyterlab-server==2.27.3
     # via notebook
 jupyterlab-widgets==3.0.13
     # via ipywidgets
-kiwisolver==1.4.5
-    # via matplotlib
 kubernetes==30.1.0
     # via chromadb
 langchain==0.2.15
@@ -273,13 +262,10 @@ langsmith==0.1.108
 markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.5
-    # via gradio
     # via jinja2
     # via nbconvert
 marshmallow==3.22.0
     # via dataclasses-json
-matplotlib==3.9.2
-    # via gradio
 matplotlib-inline==0.1.7
     # via ipykernel
     # via ipython
@@ -298,6 +284,8 @@ multidict==6.0.5
     # via yarl
 mypy-extensions==1.0.0
     # via typing-inspect
+narwhals==1.26.0
+    # via altair
 nbclient==0.10.0
     # via nbconvert
 nbconvert==7.16.4
@@ -317,14 +305,13 @@ notebook-shim==0.2.4
 numpy==1.26.4
     # via chroma-hnswlib
     # via chromadb
-    # via contourpy
-    # via gradio
     # via langchain
     # via langchain-chroma
     # via langchain-community
-    # via matplotlib
     # via onnxruntime
     # via pandas
+    # via pydeck
+    # via streamlit
 oauthlib==3.2.2
     # via kubernetes
     # via requests-oauthlib
@@ -368,15 +355,13 @@ opentelemetry-util-http==0.48b0
     # via opentelemetry-instrumentation-fastapi
 orjson==3.10.7
     # via chromadb
-    # via gradio
     # via langsmith
 overrides==7.7.0
     # via chromadb
     # via jupyter-server
 packaging==24.1
+    # via altair
     # via build
-    # via gradio
-    # via gradio-client
     # via huggingface-hub
     # via ipykernel
     # via jupyter-server
@@ -384,20 +369,19 @@ packaging==24.1
     # via jupyterlab-server
     # via langchain-core
     # via marshmallow
-    # via matplotlib
     # via nbconvert
     # via onnxruntime
-pandas==2.2.2
-    # via gradio
+    # via streamlit
+pandas==2.2.3
+    # via streamlit
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
 pexpect==4.9.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
     # via ipython
-pillow==10.4.0
-    # via gradio
-    # via matplotlib
+pillow==11.1.0
+    # via streamlit
 platformdirs==4.2.2
     # via jupyter-core
 posthog==3.6.0
@@ -411,6 +395,7 @@ protobuf==4.25.4
     # via googleapis-common-protos
     # via onnxruntime
     # via opentelemetry-proto
+    # via streamlit
 psutil==6.0.0
     # via ipykernel
 ptyprocess==0.7.0 ; os_name != 'nt' or (sys_platform != 'emscripten' and sys_platform != 'win32')
@@ -418,6 +403,8 @@ ptyprocess==0.7.0 ; os_name != 'nt' or (sys_platform != 'emscripten' and sys_pla
     # via terminado
 pure-eval==0.2.3
     # via stack-data
+pyarrow==19.0.0
+    # via streamlit
 pyasn1==0.6.0
     # via pyasn1-modules
     # via rsa
@@ -428,7 +415,6 @@ pycparser==2.22
 pydantic==2.8.2
     # via chromadb
     # via fastapi
-    # via gradio
     # via langchain
     # via langchain-core
     # via langsmith
@@ -437,15 +423,13 @@ pydantic==2.8.2
 pydantic-core==2.20.1
     # via pydantic
 pydantic-settings==2.4.0
-pydub==0.25.1
-    # via gradio
+pydeck==0.9.1
+    # via streamlit
 pygments==2.18.0
     # via ipython
     # via jupyter-console
     # via nbconvert
     # via rich
-pyparsing==3.1.4
-    # via matplotlib
 pypdf==4.3.1
 pypika==0.48.9
     # via chromadb
@@ -457,7 +441,6 @@ python-dateutil==2.9.0.post0
     # via arrow
     # via jupyter-client
     # via kubernetes
-    # via matplotlib
     # via pandas
     # via posthog
 python-dotenv==1.0.1
@@ -465,9 +448,7 @@ python-dotenv==1.0.1
     # via uvicorn
 python-json-logger==2.0.7
     # via jupyter-events
-python-multipart==0.0.9
-    # via gradio
-pytz==2024.1
+pytz==2025.1
     # via pandas
 pywin32==306 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32'
     # via jupyter-core
@@ -477,7 +458,6 @@ pywinpty==2.0.13 ; os_name == 'nt'
     # via terminado
 pyyaml==6.0.2
     # via chromadb
-    # via gradio
     # via huggingface-hub
     # via jupyter-events
     # via kubernetes
@@ -506,6 +486,7 @@ requests==2.32.3
     # via langsmith
     # via posthog
     # via requests-oauthlib
+    # via streamlit
     # via tiktoken
 requests-oauthlib==2.0.0
     # via kubernetes
@@ -516,6 +497,7 @@ rfc3986-validator==0.1.1
     # via jsonschema
     # via jupyter-events
 rich==13.8.0
+    # via streamlit
     # via typer
 rpds-py==0.20.0
     # via jsonschema
@@ -525,10 +507,6 @@ rsa==4.9
 ruamel-yaml==0.18.6
 ruamel-yaml-clib==0.2.8 ; python_full_version < '3.13' and platform_python_implementation == 'CPython'
     # via ruamel-yaml
-ruff==0.6.3 ; sys_platform != 'emscripten'
-    # via gradio
-semantic-version==2.10.0
-    # via gradio
 send2trash==1.8.3
     # via jupyter-server
 setuptools==74.0.0
@@ -543,6 +521,8 @@ six==1.16.0
     # via posthog
     # via python-dateutil
     # via rfc3339-validator
+smmap==5.0.2
+    # via gitdb
 sniffio==1.3.1
     # via anyio
     # via httpx
@@ -556,6 +536,7 @@ stack-data==0.6.3
     # via ipython
 starlette==0.38.4
     # via fastapi
+streamlit==1.42.0
 sympy==1.13.2
     # via onnxruntime
 tenacity==8.5.0
@@ -563,6 +544,7 @@ tenacity==8.5.0
     # via langchain
     # via langchain-community
     # via langchain-core
+    # via streamlit
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
@@ -572,14 +554,15 @@ tinycss2==1.3.0
     # via nbconvert
 tokenizers==0.19.1
     # via chromadb
-tomlkit==0.12.0
-    # via gradio
+toml==0.10.2
+    # via streamlit
 tornado==6.4.1
     # via ipykernel
     # via jupyter-client
     # via jupyter-server
     # via jupyterlab
     # via notebook
+    # via streamlit
     # via terminado
 tqdm==4.66.5
     # via chromadb
@@ -602,14 +585,12 @@ traitlets==5.14.3
     # via nbformat
 typer==0.12.5
     # via chromadb
-    # via gradio
 types-python-dateutil==2.9.0.20240821
     # via arrow
 typing-extensions==4.12.2
+    # via altair
     # via chromadb
     # via fastapi
-    # via gradio
-    # via gradio-client
     # via huggingface-hub
     # via ipython
     # via langchain-core
@@ -618,23 +599,24 @@ typing-extensions==4.12.2
     # via pydantic
     # via pydantic-core
     # via sqlalchemy
+    # via streamlit
     # via typer
     # via typing-inspect
 typing-inspect==0.9.0
     # via dataclasses-json
-tzdata==2024.1
+tzdata==2025.1
     # via pandas
 uri-template==1.3.0
     # via jsonschema
 urllib3==2.2.2
-    # via gradio
     # via kubernetes
     # via requests
 uvicorn==0.30.6
     # via chromadb
-    # via gradio
 uvloop==0.20.0 ; platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'
     # via uvicorn
+watchdog==6.0.0 ; platform_system != 'Darwin'
+    # via streamlit
 watchfiles==0.24.0
     # via uvicorn
 wcwidth==0.2.13
@@ -648,7 +630,6 @@ websocket-client==1.8.0
     # via jupyter-server
     # via kubernetes
 websockets==12.0
-    # via gradio-client
     # via uvicorn
 widgetsnbextension==4.0.13
     # via ipywidgets

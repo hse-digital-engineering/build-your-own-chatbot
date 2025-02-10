@@ -1,6 +1,6 @@
-## Deploying a Large Language Model (LLM) on Jetson Orin Nano with Ollama
+# Deploying a Large Language Model (LLM) on Jetson Orin Nano with Ollama
 
-### Overview
+## Overview
 
 This guide provides a streamlined approach to deploying and running a Large Language Model (LLM) on the Jetson Orin Nano using Ollama, a powerful framework for running LLMs locally. You will learn how to set up the environment, deploy a pre-built Docker container, and interact with the model inside the container.
 
@@ -8,74 +8,41 @@ For more detailed documentation, visit the official guide here: [Jetson AI Lab O
 
 ---
 
-### Building and Deploying the Ollama Container from Scratch
+## Deployment Using a Pre-Built Container
 
-#### 1. Clone the Container Repository
+You can pull a pre-built Ollama container from Docker Hub: [makoit13/ollama](https://hub.docker.com/r/makoit13/ollama).
 
-Start by cloning the repository that contains Jetson-compatible Docker containers, optimized for Nvidia Jetson devices.
+Pre-built images are available for different Jetpack versions:
 
-```bash
-git clone https://github.com/dusty-nv/jetson-containers
-```
+- **Jetpack 6 with Cuda 12.6**: `makoit13/ollama:r36.4.0`
 
-This repository includes pre-configured containers designed for the Jetson Orin Nano and other Jetson devices.
+### Steps
 
-#### 2. Install the Containers
+1. **Pull the Docker image**:
 
-Next, install the necessary dependencies and prepare your environment by running the installation script provided in the repository.
+   ```bash
+   docker pull makoit13/ollama:r36.4.0
+   ```
 
-```bash
-bash jetson-containers/install.sh
-```
+2. **Run the container**:
 
-This script will install required components and configure your system for running LLMs in Docker containers on Jetson hardware.
+   ```bash
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0
+   ```
 
-#### 3. Run the Ollama Container
+3. **Download model and run in container**:
 
-Now you can start the Ollama container, optimized for Jetson Orin Nano. To do so, use the following command from the terminal (outside VS Code):
+   To manually download and run a model like Llama 3.2 inside the Ollama container, use the following command outside the container:
 
-**EDIT: there are currently issues with ollama because ollama service is not starting in container when container spins up (see issue: [#814](https://github.com/dusty-nv/jetson-containers/issues/814)).**
+   ```bash
+   docker exec -it ollama ollama run llama3.2:1b
+   ```
 
-```bash
-jetson-containers run -d --name ollama dustynv/ollama:main-r36.4.0
+### Optional: Start container and run model
 
-```
-
-**WORKAROUND: this command takes care of starting the ollama service after spinning up the container.**
-
-```bash
-jetson-containers run -d --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve"
-
-```
-
-- `jetson-containers run`: Starts the container using configurations from the cloned repository.
-- `--name ollama`: Names the container "ollama" for easy identification.
-
----
-
-### Manually Download and Run a LLM in the Ollama Container
-
-To manually download and run a model like Llama 3.2 inside the Ollama container, use the following command outside the container shell:
-
-```bash
-docker exec -it ollama ollama run llama3.2:1b
-```
-
-If you are already inside the container shell, you can simply run:
-
-```bash
-ollama run llama3.2:1b
-```
-
----
-
-### Automatically Download and Run a LLM in the Ollama Container
-
-You can also automatically spin up the container, download and run the LLM model using this command:
-
-```bash
-jetson-containers run -d dustynv/ollama:main-r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
-```
+   ```bash
+   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
+   ```
 
 ---
 
@@ -95,13 +62,13 @@ This opens an interactive shell within the running Ollama container.
 
 Once inside the container, you can interact with Ollama via its CLI. Here are some basic commands:
 
-#### General Command Format:
+#### General Command Format
 
 ```bash
 ollama [command] [flags]
 ```
 
-#### Available Commands:
+#### Available Commands
 
 - **serve**: Start Ollama's service.
 - **create**: Create a model from a Modelfile.
@@ -115,73 +82,24 @@ ollama [command] [flags]
 - **rm**: Remove a model.
 - **help**: Get help for any command.
 
-#### Example Commands:
+#### Example Commands
 
 1. **Run a Model**:
+
    ```bash
    ollama run llama3.2:1b
    ```
 
 2. **List Available Models**:
+
    ```bash
    ollama list
    ```
 
 3. **Pull a Model from a Registry**:
+
    ```bash
    ollama pull llama3.2:1b
-   ```
-
----
-
-### Alternative Deployment Using a Pre-Built Container
-
-Alternatively, you can pull a pre-built Ollama container from Docker Hub: [dustynv/ollama](https://hub.docker.com/r/dustynv/ollama).
-
-Pre-built images are available for different Jetpack versions:
-
-- **Jetpack 5**: `dustynv/ollama:r35.4.1`
-- **Jetpack 6**: `dustynv/ollama:main-r36.4.0`
-
-#### Steps:
-
-1. **Check the installed Jetpack version**:
-
-   ```bash
-   sudo apt-cache show nvidia-jetpack
-   ```
-
-2. **Pull the appropriate Docker image** based on your Jetpack version:
-
-   ```bash
-   docker pull dustynv/ollama:main-r36.4.0
-   ```
-
-3. **Run the container**:
-
-   **EDIT: there are currently issues with ollama because ollama service is not starting in container when container spins up (see issue: [#814](https://github.com/dusty-nv/jetson-containers/issues/814)).**
-
-      ```bash
-      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0
-      ```
-
-   **WORKAROUND:**
-
-      ```bash
-      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve"
-      ```
-
-   **OR (starting also a model):**
-
-      ```bash
-      docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama dustynv/ollama:main-r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
-      ```
-
-
-4. **Execute the model inside the running container**:
-
-   ```bash
-   docker exec -it ollama ollama run llama3.2:1b
    ```
 
 ---
