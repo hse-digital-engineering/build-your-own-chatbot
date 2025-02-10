@@ -24,6 +24,8 @@ This setup will serve as the foundation for storing and retrieving vector embedd
 
 2. **Run the ChromaDB Container**
 
+Execute following command in the shell path: `~/build-your-own-chatbot`:
+
   ```bash
   docker run -d \
     -p 8000:8000 \

@@ -26,6 +26,8 @@ Pre-built images are available for different Jetpack versions:
 
 2. **Run the container**:
 
+Execute following command in the shell path: `~/build-your-own-chatbot`:
+
    ```bash
    docker run -d \
       -v "$(pwd)/container_cache/ollama/models:/data/models/ollama/models" \
@@ -41,6 +43,8 @@ Pre-built images are available for different Jetpack versions:
    ```bash
    docker exec -it ollama ollama run llama3.2:1b
    ```
+
+   After executing this command you have attached the container shell which means you are inside of the container.
 
 <!-- ### Optional: Start container and run model
 
