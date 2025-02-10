@@ -29,10 +29,13 @@ services:
   chroma:
     image: chromadb/chroma:0.5.13
     volumes:
-      - ./chroma:/chroma/.chroma/index
+      - ../../container_cache/chroma:/chroma/chroma
     ports:
       - "8000:8000"
     container_name: chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=./chroma/chroma
     healthcheck: 
         test: curl localhost:8000/api/v1/heartbeat || exit 1
         interval: 10s
@@ -47,7 +50,7 @@ services:
     ports:
       - 11434:11434
     volumes:
-      - ./ollama/ollama:/root/.ollama
+      - ../../container_cache/ollama/models:/data/models/ollama/models
     container_name: ollama
     tty: true
     entrypoint: ["/bin/bash", "-c"]

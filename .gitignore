@@ -164,10 +164,4 @@ cython_debug/
 # project-specific:
 .DS_Store
 
-ollama
-<<<<<<< HEAD
-chroma
-=======
-chroma
-embedding_model
->>>>>>> feature/optimizations
+container_cache/*

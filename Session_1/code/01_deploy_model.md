@@ -27,7 +27,11 @@ Pre-built images are available for different Jetpack versions:
 2. **Run the container**:
 
    ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0
+   docker run -d \
+      -v "$(pwd)/container_cache/ollama/models:/data/models/ollama/models" \
+      -p 11434:11434 \
+      --name ollama makoit13/ollama:r36.4.0 \
+      bash -c "ollama serve"
    ```
 
 3. **Download model and run in container**:
@@ -38,11 +42,11 @@ Pre-built images are available for different Jetpack versions:
    docker exec -it ollama ollama run llama3.2:1b
    ```
 
-### Optional: Start container and run model
+<!-- ### Optional: Start container and run model
 
    ```bash
-   docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0 bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
-   ```
+   docker run -d -v ./ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0 bash -c "ollama run llama3.2:1b"
+   ``` -->
 
 ---
 
