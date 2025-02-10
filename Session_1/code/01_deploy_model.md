@@ -30,10 +30,11 @@ Execute following command in the shell path: `~/build-your-own-chatbot`:
 
    ```bash
    docker run -d \
+      --runtime nvidia \
+      -it \
       -v "$(pwd)/container_cache/ollama/models:/data/models/ollama/models" \
       -p 11434:11434 \
-      --name ollama makoit13/ollama:r36.4.0 \
-      bash -c "ollama serve"
+      --name ollama makoit13/ollama:r36.4.0
    ```
 
 3. **Download model and run in container**:
@@ -46,11 +47,17 @@ Execute following command in the shell path: `~/build-your-own-chatbot`:
 
    After executing this command you have attached the container shell which means you are inside of the container.
 
-<!-- ### Optional: Start container and run model
+### Optional: Start container and run model
 
    ```bash
-   docker run -d -v ./ollama:/root/.ollama -p 11434:11434 --name ollama makoit13/ollama:r36.4.0 bash -c "ollama run llama3.2:1b"
-   ``` -->
+   docker run -d \
+      --runtime nvidia \
+      -it \
+      -v "$(pwd)/container_cache/ollama/models:/data/models/ollama/models" \
+      -p 11434:11434 \
+      --name ollama makoit13/ollama:r36.4.0 \
+      bash -c "ollama serve & sleep 5; ollama run llama3.2:1B"
+   ```
 
 ---
 
