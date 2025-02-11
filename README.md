@@ -101,7 +101,7 @@ Here’s a textual explanation of the component architecture for the NVIDIA Jets
 graph TD
     subgraph NVIDIA Jetson Orin Nano
         subgraph Docker Containers
-            Chatbot(Streamlit App - Python & LangChain)
+            Chatbot(Chatbot App - Python, Streamlit, LangChain)
             LLM(Large Language Model - Ollama)
             VectorStore(ChromaDB Vector Store)
         end
