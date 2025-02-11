@@ -24,8 +24,7 @@ In this workshop, we will build a chatbot using an LLM as the core engine, compl
 
 ### Key Concepts
 
-- **Frontend**: A graphical user interface (GUI) for interacting with the chatbot.
-- **Backend**: Handles the core functionality and logic of the chatbot.
+- **Chatbot**: Handles the core functionality and logic of the chatbot.
 - **Retrieval-Augmented Generation (RAG)**: A hybrid approach that combines information retrieval with text generation to enhance chatbot responses.
 
 Below is a diagram code that explains the general concept of Retrieval-Augmented Generation (RAG), which combines retrieval-based methods with generative models to enhance the generation of text responses.
@@ -102,18 +101,16 @@ Here’s a textual explanation of the component architecture for the NVIDIA Jets
 graph TD
     subgraph NVIDIA Jetson Orin Nano
         subgraph Docker Containers
-            Frontend(Frontend - Gradio) 
-            Backend(Backend - Python & LangChain)
+            Chatbot(Streamlit App - Python & LangChain)
             LLM(Large Language Model - Ollama)
             VectorStore(ChromaDB Vector Store)
         end
 
-        Frontend -->|Websocket API| Backend
-        Backend -->|HTTP| LLM
-        Backend -->|HTTP| VectorStore
+        Chatbot -->|HTTP| LLM
+        Chatbot -->|HTTP| VectorStore
     end
 
-    WebBrowser(Web Browser) -->|Access| Frontend
+    WebBrowser(Web Browser) -->|Access| Chatbot
 ```
 
 ### Components Explained
@@ -121,14 +118,12 @@ graph TD
 1. **NVIDIA Jetson Orin Nano**: The hardware platform hosting all Docker containers necessary for the chatbot.
 
 2. **Docker Containers**:
-    - **Frontend (Gradio)**: The user interface for interacting with the chatbot.
-    - **Backend (Python & LangChain)**: Manages chatbot logic, processes inputs, and interfaces with other components.
+    - **Chatbot(Streamlit App - Python & LangChain)**: Manages streamlit frontend, chatbot logic, processes inputs, and interfaces with other components.
     - **LLM (Ollama)**: Handles natural language processing tasks.
     - **VectorStore (ChromaDB Vector Store)**: Manages vector representations of text data for efficient querying.
 
 3. **Development and Communication Flow**:
-    - **Frontend to Backend**: Communication via Websocket API.
-    - **Backend to LLM and VectorStore**: Interaction through HTTP requests.
+    - **Chatbot(Streamlit App - Python & LangChain)**: Interaction through HTTP requests.
     - **Remote Development**: Developers interact with the NVIDIA Jetson Orin Nano remotely for development purposes.
 
 ### User Interaction Flow
@@ -136,19 +131,16 @@ graph TD
 ```mermaid
 sequenceDiagram
     participant User as User (Web Browser)
-    participant Frontend as Frontend (Gradio)
-    participant Backend as Backend (Python & LangChain)
+    participant Chatbot (Streamlit App - Python & LangChain)
     participant LLM as Large Language Model (Ollama)
     participant VectorStore as Vector Store (ChromaDB)
 
-    User->>Frontend: Sends a message
-    Frontend->>Backend: Forwards message via WebSocket Connection
-    Backend->>VectorStore: Queries for relevant documents
-    VectorStore-->>Backend: Returns relevant context/data
-    Backend->>LLM: Sends message along with context for processing via HTTP
-    LLM-->>Backend: Returns generated response with augmented context
-    Backend-->>Frontend: Sends final response
-    Frontend-->>User: Displays response
+    User->>Chatbot (Streamlit App - Python & LangChain): Sends a message
+    Chatbot (Streamlit App - Python & LangChain)->>VectorStore: Queries for relevant documents
+    VectorStore-->>Chatbot (Streamlit App - Python & LangChain): Returns relevant context/data
+    Chatbot (Streamlit App - Python & LangChain)->>LLM: Sends message along with context for processing via HTTP
+    LLM-->>Chatbot (Streamlit App - Python & LangChain): Returns generated response with augmented context
+    Chatbot (Streamlit App - Python & LangChain)-->>User: Displays response
 ```
 
 This diagram illustrates the flow of data during a typical user interaction with the chatbot, highlighting how the components communicate to generate and display responses.
@@ -198,8 +190,8 @@ Here’s a breakdown of the project structure with an explanation of each compon
 ├── Session_5
 │   ├── chatbot_solution
 │   │   ├── README_CHATBOT.md                    # Documentation outlining the chatbot solution project
-│   │   ├── backend
-│   │   │   ├── Dockerfile.backend               # Dockerfile for backend services
+│   │   ├── app
+│   │   │   ├── Dockerfile                       # Dockerfile for backend services
 │   │   │   ├── main.py                          # Main backend application logic
 │   │   │   ├── pyproject.toml                   # Backend configuration file
 │   │   │   ├── requirements-dev.lock            # Locked development dependencies for backend
@@ -207,20 +199,13 @@ Here’s a breakdown of the project structure with an explanation of each compon
 │   │   │   └── src
 │   │   │       ├── AI_Book.pdf                  # Reference materials for the chatbot's knowledge base
 │   │   │       ├── __init__.py                  # Initializes the backend Python package
-│   │   │       └── bot.py                       # Core chatbot functionality and logic
-│   │   ├── chroma                               # ChromaDB-related configurations and scripts
+│   │   │       └── chatbot.py                   # Core chatbot functionality and logic
 │   │   ├── docker-compose-jetson.yml            # Docker Compose configuration for Jetson Nano
 │   │   ├── docker-compose.yml                   # Standard Docker Compose configuration for chatbot services
-│   │   ├── frontend
-│   │   │   ├── Dockerfile.frontend              # Dockerfile for frontend services
-│   │   │   ├── app.py                           # Frontend application logic
-│   │   │   ├── pyproject.toml                   # Frontend configuration file
-│   │   │   ├── requirements-dev.lock            # Locked development dependencies for frontend
-│   │   │   └── requirements.lock                # Locked production dependencies for frontend
 │   ├── chatbot_task
 │   │   ├── README_CHATBOT.md                    # Documentation outlining the chatbot task project for participants
-│   │   ├── backend
-│   │   │   ├── Dockerfile.backend               # Dockerfile for backend services
+│   │   ├── app
+│   │   │   ├── Dockerfile                       # Dockerfile for backend services
 │   │   │   ├── main.py                          # Main backend application logic for the task
 │   │   │   ├── pyproject.toml                   # Backend configuration file 
 │   │   │   ├── requirements-dev.lock            # Locked development dependencies for backend 
@@ -228,21 +213,15 @@ Here’s a breakdown of the project structure with an explanation of each compon
 │   │   │   └── src
 │   │   │       ├── AI_Book.pdf                  # Reference materials for the chatbot's knowledge base 
 │   │   │       ├── __init__.py                  # Initializes the backend Python package 
-│   │   │       └── bot.py                       # Core chatbot functionality and logic 
+│   │   │       └── chatbot.py                   # Core chatbot functionality and logic 
 │   │   ├── docker-compose-jetson.yml            # Docker Compose configuration for Jetson Nano 
 │   │   ├── docker-compose.yml                   # Standard Docker Compose configuration for chatbot services 
-│   │   └── frontend
-│   │       ├── Dockerfile.frontend              # Dockerfile for frontend services 
-│   │       ├── app.py                           # Frontend application logic 
-│   │       ├── pyproject.toml                   # Frontend configuration file 
-│   │       ├── requirements-dev.lock            # Locked development dependencies for frontend 
-│   │       └── requirements.lock                # Locked production dependencies for frontend 
 │   └── slides
 │       └── Session 5 Slides.pdf                 # Presentation slides for Session 5
-├── Workshop_Timeline.md                          # Detailed timeline outlining the workshop schedule
-├── pyproject.toml                                # Configuration and metadata for the overall project
-├── requirements-dev.lock                         # Locked development dependencies for consistent environments
-└── requirements.lock                             # Locked production dependencies for consistent deployments
+├── Workshop_Timeline.md                         # Detailed timeline outlining the workshop schedule
+├── pyproject.toml                               # Configuration and metadata for the overall project
+├── requirements-dev.lock                        # Locked development dependencies for consistent environments
+└── requirements.lock                            # Locked production dependencies for consistent deployments
 ```
 
 ---
