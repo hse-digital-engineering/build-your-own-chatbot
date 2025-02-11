@@ -1,5 +1,17 @@
 # Deploying a Large Language Model (LLM) on Jetson Orin Nano with Ollama
 
+> ``📝`` If your are not using a Nvidia Jetson, just follow the Instructions [here](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image) 
+> 
+> **For CPUs** just run the following command:
+> ```bash
+> docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+> ```
+>
+> **For GPUs** install the Nvidia Container Toolkit ([Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)) and run the following command:
+> ```bash
+> docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+> ```
+
 ## Overview
 
 This guide provides a streamlined approach to deploying and running a Large Language Model (LLM) on the Jetson Orin Nano using Ollama, a powerful framework for running LLMs locally. You will learn how to set up the environment, deploy a pre-built Docker container, and interact with the model inside the container.
@@ -26,7 +38,7 @@ Pre-built images are available for different Jetpack versions:
 
 2. **Run the container**:
 
-Execute following command in the shell path: `~/build-your-own-chatbot`:
+   Execute following command in the shell path: `~/build-your-own-chatbot`:
 
    ```bash
    docker run -d \
@@ -56,7 +68,7 @@ Execute following command in the shell path: `~/build-your-own-chatbot`:
       -v "$(pwd)/container_cache/ollama/models:/data/models/ollama/models" \
       -p 11434:11434 \
       --name ollama makoit13/ollama:r36.4.0 \
-      bash -c "ollama serve & sleep 5; ollama run llama3.2:1B"
+      bash -c "ollama serve & sleep 5; ollama run llama3.2:1b"
    ```
 
 ---
