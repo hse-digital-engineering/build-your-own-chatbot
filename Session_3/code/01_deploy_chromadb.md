@@ -19,7 +19,7 @@ This setup will serve as the foundation for storing and retrieving vector embedd
 1. **Pull the ChromaDB Docker Image**
 
    ```bash
-   docker pull chromadb/chroma
+   docker pull chromadb/chroma:0.5.13
    ```
 
 2. **Run the ChromaDB Container**
@@ -39,7 +39,7 @@ Execute following command in the shell path: `~/build-your-own-chatbot`:
      - `-v [local_dir]:[container_dir]`: Mounts a local directory to the container. This is where ChromaDB will store its data, ensuring data persistence even if the container is destroyed.
      - `-e IS_PERSISTENT=TRUE`: Instructs ChromaDB to persist data.
      - `-e PERSIST_DIRECTORY=/path/in/container`: Specifies the path inside the container where data will be stored. The default is `/chroma/chroma`.
-     - `chromadb/chroma:latest`: Specifies the ChromaDB version. Replace `latest` with a specific tag if you need a prior version (e.g., `chromadb/chroma:0.4.24`).
+     - `chromadb/chroma:latest`: Specifies the ChromaDB version. Replace `latest` with a specific tag if you need a prior version (e.g., `chromadb/chroma:0.5.13`).
 
 ## Notes
 
